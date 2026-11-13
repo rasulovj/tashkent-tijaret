@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bülten Robotu Kılavuzu</title>
+<style>
+  :root { --red: #8B1A1A; --soft: #f6e7e2; --ink: #1d1d1f; --muted: #6b6b70; --line: #e6e2dc; --bg: #f6f4f1; --ok: #1e7a3c; --warn: #a35f00; --blue: #229ED9; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 15px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif; color: var(--ink); background: var(--bg); }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 28px 22px 60px; }
+  .hero { background: var(--red); color: #fff; border-radius: 18px; padding: 34px 36px; display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: center; }
+  .hero h1 { margin: 0 0 6px; font: bold italic 34px Georgia, serif; }
+  .hero p { margin: 0; opacity: .9; font-size: 16px; }
+  .hero .mark { width: 76px; height: 76px; border-radius: 18px; background: #fff; color: var(--red); display: grid; place-items: center; font: bold italic 30px Georgia, serif; }
+  h2 { font: bold 24px Georgia, serif; color: var(--red); margin: 40px 0 6px; display: flex; align-items: center; gap: 12px; }
+  h2 .n { width: 38px; height: 38px; border-radius: 50%; background: var(--red); color: #fff; display: grid; place-items: center; font: 700 17px system-ui, sans-serif; flex: none; }
+  .lead { color: var(--muted); margin: 0 0 16px 50px; }
+  .quick { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin: 22px 0 6px; }
+  .q { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 16px 14px; position: relative; }
+  .q b { display: block; font-size: 15px; margin: 8px 0 4px; }
+  .q span { color: var(--muted); font-size: 13px; line-height: 1.4; display: block; }
+  .q i { font-style: normal; font-size: 26px; }
+  .q:not(:last-child)::after { content: "→"; position: absolute; right: -11px; top: 38%; color: var(--red); font-weight: 700; font-size: 18px; z-index: 1; }
+  .shot { position: relative; border-radius: 12px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 8px 30px rgba(0,0,0,.08); background: #fff; }
+  .shot img { display: block; width: 100%; }
+  .pin { position: absolute; width: 30px; height: 30px; margin: -15px 0 0 -15px; border-radius: 50%; background: #e0a21b; color: #1d1d1f; border: 3px solid #fff; box-shadow: 0 2px 8px rgba(0,0,0,.35); display: grid; place-items: center; font: 800 14px system-ui, sans-serif; }
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; margin: 14px 0 0; padding: 0; list-style: none; }
+  .steps li { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px 12px 50px; position: relative; font-size: 14px; }
+  .steps li .p { position: absolute; left: 12px; top: 12px; width: 26px; height: 26px; border-radius: 50%; background: #e0a21b; display: grid; place-items: center; font: 800 13px system-ui; }
+  .steps li b { display: block; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .tip { background: #fff; border-left: 5px solid var(--red); border-radius: 10px; padding: 12px 16px; margin: 14px 0 0; font-size: 14px; }
+  .tip.ok { border-color: var(--ok); } .tip.tg { border-color: var(--blue); }
+  .legend { display: flex; flex-wrap: wrap; gap: 14px; font-size: 14px; margin: 10px 0 0; }
+  .legend span { display: inline-flex; gap: 6px; align-items: center; }
+  .legend i { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+  mark { background: #fde9a8; border-radius: 3px; padding: 0 3px; } mark.g { background: #cdebd6; }
+  code { background: #efebe6; padding: 2px 6px; border-radius: 5px; font-size: 13px; }
+  .uz { background: #fff; border: 1px dashed #c9a99b; border-radius: 12px; padding: 14px 18px; margin-top: 12px; font-size: 14px; }
+  .toc { columns: 2; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 16px 22px; margin-top: 18px; }
+  .toc a { color: var(--ink); text-decoration: none; display: block; padding: 3px 0; } .toc a:hover { color: var(--red); }
+  footer { color: var(--muted); font-size: 13px; text-align: center; margin-top: 50px; }
+  @media (max-width: 760px) { .quick { grid-template-columns: 1fr 1fr; } .two { grid-template-columns: 1fr; } .q::after { display: none; } .toc { columns: 1; } }
+  @media print {
+    @page { size: A4; margin: 12mm; }
+    body { background: #fff; font-size: 12px; }
+    .wrap { padding: 0; max-width: none; }
+    section.page { break-before: page; }
+    .shot { box-shadow: none; break-inside: avoid; }
+    .steps li, .tip, .q { break-inside: avoid; }
+    .quick { grid-template-columns: repeat(5, 1fr) !important; }
+    .q::after { display: block !important; }
+    .two { grid-template-columns: 1fr 1fr !important; }
+    .toc { columns: 2 !important; }
+    .steps { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+    h2 { margin-top: 18px; }
+  }
+
+  .rb { width: 100%; border-collapse: collapse; background: #fff; border-radius: 12px; overflow: hidden; border: 1px solid var(--line); font-size: 14px; margin-top: 12px; }
+  .rb th, .rb td { padding: 10px 12px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+  .rb th { background: var(--soft); color: var(--red); font-size: 13px; }
+  .rb tr:last-child td { border-bottom: 0; }
+  .quick { grid-template-columns: repeat(4, 1fr); }
+  .q span b { display: inline; font-size: inherit; margin: 0; }
+  .steps li b:not(:first-of-type) { display: inline; font-size: inherit; margin: 0; }
+  @media print { .quick { grid-template-columns: repeat(4, 1fr) !important; } .rb { break-inside: avoid; } .steps { grid-template-columns: repeat(3, 1fr) !important; } ul.steps { grid-template-columns: 1fr 1fr !important; } .steps li { padding-left: 42px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="hero">
+  <div><h1>Bülten Robotu – Kullanım Kılavuzu</h1>
+    <p>T.C. Taşkent Büyükelçiliği Ticaret Müşavirliği · bülten, video bülten ve raporlar</p></div>
+  <div class="mark">TM</div>
+</div>
+<section>
+<h2><span class="n">★</span> 4 adımda bülten</h2>
+<div class="quick">
+  <div class="q"><i>⟳</i><b>1. Topla</b><span>Robot kaynakları <b>sizin seçtiğiniz saatlerde</b> tarar ve haberleri Türkçeye çevirir. Beklemek istemezseniz <b>⟳ Şimdi tara</b>.</span></div>
+  <div class="q"><i>✦</i><b>2. Seç</b><span><b>✦ Otomatik</b> haberleri sizin yerinize seçer. İsterseniz soldan <b>＋ Bültene ekle</b> ile kendiniz de eklersiniz.</span></div>
+  <div class="q"><i>✓</i><b>3. Kontrol</b><span>Başlığa tıklayıp haberi okuyun; gerekirse ✎ ile düzeltin, ✕ ile çıkarın.</span></div>
+  <div class="q"><i>▣</i><b>4. Üret</b><span><b>Bülten üret</b> → önizleme → <b>Onayla ve PDF indir</b>. Bülten arşive girer, liste boşalır.</span></div>
+</div>
+<div class="tip ok" style="margin-top:14px"><b>Menü 5 başlıktır:</b> Ana Sayfa · Haber ve Bülten · Raporlar · Kaynaklar · Yardım (Kılavuz ve Ayarlar).</div>
+<div class="toc">
+  <a href="#k1">1. Ana Sayfa</a><a href="#k2">2. Haber ve Bülten</a>
+  <a href="#k2b">3. Otomatik bülten</a><a href="#k3">4. Raporlar</a>
+  <a href="#k5">5. Kaynaklar ve tarama saatleri</a><a href="#k4">6. Robotlar ne zaman çalışır?</a>
+  <a href="#k6">7. Türkçe / Özbekçe</a><a href="#k7">8. Renkler ve ipuçları</a>
+</div>
+</section>
+
+<section class="page" id="k1">
+<h2><span class="n">1</span> Ana Sayfa</h2>
+<p class="lead">Haberler, bülten ve raporlar bir bakışta. Panel kendini birkaç saniyede bir günceller.</p>
+<div class="shot"><img src="guide/k2-home.png" alt="Ana Sayfa"></div>
+<ol class="steps">
+  <li><span class="p">1</span><b>Menü</b>Simgeli başlıklar; sayılar o bölümdeki kayıt adedidir. Dar ekranda yazı simgenin altına iner.</li>
+  <li><span class="p">2</span><b>Kutucuklar</b>Son 24 saatteki yeni haber, bu hafta toplanan haber, bültendeki haber ve son bülten (PDF buradan da iner). Kutucuğa tıklayınca ilgili sayfa açılır.</li>
+  <li><span class="p">3</span><b>Grafikler</b>Son 7 günde günlük toplanan haber ve en çok haber gelen kaynaklar. Üstte robotun tarama saatleri yazar.</li>
+  <li><span class="p">4</span><b>TR / UZ · Adınız</b>Panelin dili ve bülteni onaylayan adı sol alttadır.</li>
+</ol>
+</section>
+
+<section class="page" id="k2">
+<h2><span class="n">2</span> Haber ve Bülten (seç · kontrol et · üret)</h2>
+<p class="lead">Üç sütun soldan sağa işin sırasını izler: <b>1 Haberler</b>, <b>2 Bültendeki haberler</b>, <b>3 Bülteni üret</b>.</p>
+<div class="shot"><img src="guide/k2-hazirla.png" alt="Haber ve Bülten"></div>
+<ol class="steps">
+  <li><span class="p">1</span><b>Haberi okumak</b>Haberin <b>başlığına ya da fotoğrafına tıklayın</b>: okuma penceresi açılır. Robot her haberin tam metnini alır; yabancı dildeki haber tamamıyla Türkçeye çevrilir, rakamlar aslıyla karşılaştırılır. <b>Aslını göster</b> özgün metni açar; altta kaynak künyesi durur.</li>
+  <li><span class="p">2</span><b>＋ Kaynak · ⟳ Şimdi tara</b>Yeni site ya da Telegram kanalı ekler; robotu beklemeden tarar. Arama kutusu ve gruplarla süzün.</li>
+  <li><span class="p">3</span><b>＋ Bültene ekle</b>Haber fotoğrafıyla birlikte bülten diliyle yazılır. “Gazeta.uz'un … tarihli haberine göre” gibi giriş cümleleri kendiliğinden silinir.</li>
+  <li><span class="p">4</span><b>Bültendeki haberler</b>Başlığa tıklayınca bülten metni okunur. ↑ ↓ sıralar, 🖼 fotoğrafı açar/kapatır, ✎ metni düzeltir, ✕ çıkarır. <b>Hepsini göster / gizle</b> bütün fotoğraflar içindir.</li>
+  <li><span class="p">5</span><b>Dil</b>TR, EN, RU, UZ. Başka dilde Claude çevirir ve rakamları Türkçe asılla karşılaştırır.</li>
+  <li><span class="p">6</span><b>📄 Bülten üret</b>Önce <b>önizleme</b> açılır. <b>✓ Onayla ve PDF indir</b> dosyayı indirir, bülten <b>Üretilen bültenler</b> listesine (en yeni üstte) girer ve orta liste boşalır. <b>✎ Düzeltmeye dön</b> bu sürümü siler.</li>
+  <li><span class="p">7</span><b>Üretilen bültenler</b>Her bültenin <b>👁 Önizle</b> ve <b>⬇ PDF indir</b> düğmesi vardır. Sayı bugünün tarihidir; aynı gün ikinci bülten “-2” alır.</li>
+  <li><span class="p">8</span><b>🎬 Video bülten üret</b>Bültendeki haberleri fotoğraflı slayt videosuna dönüştürür; kayıt bitene kadar sekmeyi açık tutun.</li>
+</ol>
+<div class="tip">Rakam uyarısı varken bülten üretilmez: doğru haber ve doğru çeviri her şeyden önce gelir.</div>
+</section>
+
+<section class="page" id="k2b">
+<h2><span class="n">3</span> Otomatik bülten (haberleri seçmek zorunda değilsiniz)</h2>
+<p class="lead">Panel, sizin daha önce yayımladığınız bültenlere bakarak hangi haberleri seçtiğinizi öğrenir ve bir sonraki bülteni sizin yerinize seçer.</p>
+<div class="shot"><img src="guide/k2-otomatik.png" alt="Otomatik bülten"></div>
+<ol class="steps">
+  <li><span class="p">1</span><b>✦ Otomatik → Örnek bültenler</b>Eski bültenlerinizin PDF'lerini yükleyin (birden çok seçilebilir). Claude konuları, anahtar kelimeleri, kaynakları ve bülten başına haber sayısını çıkarır; öğrendiği ölçüt pencerede görünür.</li>
+  <li><span class="p">2</span><b>✦ N haber seç</b>Liste boşken ortada çıkan karttaki düğme (ya da pencerede <b>✦ Şimdi haber seç</b>) yeni haberlerden en uygunlarını seçer, aynı konuyu iki kez almaz, konuları dengeler ve bülten diliyle yazar.</li>
+  <li><span class="p">3</span><b>Robot listeyi kendisi hazırlasın</b>Gün ve saat seçin (ör. hafta içi 10:00). O saatte robot önce tarar, sonra haberleri seçip listeyi hazırlar.</li>
+  <li><span class="p">4</span><b>Siz yalnızca bakarsınız</b>Seçilen listeye istediğiniz haberi soldan ekleyin, ✕ ile çıkarın, ✎ ile düzeltin. Sonra <b>Bülten üret</b> → önizleme → onay. PDF hiçbir zaman onaysız yayımlanmaz.</li>
+</ol>
+<div class="tip ok">Onayladığınız her bülten de örnek olur; panel kullandıkça seçiminize daha çok benzer.</div>
+</section>
+
+<section class="page" id="k3">
+<h2><span class="n">4</span> Raporlar (12 tür)</h2>
+<p class="lead">Ticaret müşavirliklerinin hazırladığı raporlara göre: Sektör, Ülke, Yatırım Profili, Şehir/Bölge, Ülke Profili, Pazar Araştırması, Müteahhitlik, Bilgi Notu, Aylık Ekonomik Görünüm, Gümrük ve Mevzuat, İhale Duyurusu, Heyet Ziyareti.</p>
+<div class="shot"><img src="guide/k2-raporlar.png" alt="Raporlar"></div>
+<ol class="steps">
+  <li><span class="p">1</span><b>＋ Yeni rapor</b>Tür kartına tıklayın, gerekli bilgiyi (sektör, şehir, ay…) seçin → <b>Oluştur</b>.</li>
+  <li><span class="p">2</span><b>Süz ve ilerle</b>Tümü / Yapılacak / Bekleyen / Onaylı / Veri süzgeçleri; ilerleme çubuğu ve <b>Sıradaki bölüm →</b> düğmesi.</li>
+  <li><span class="p">3</span><b>Bölüm</b>Tıklanan bölüm yerinde açılır: durum, başlık, otomatik tablo (▦) ve metin. <b>Kaydet</b> ya da <b>✓ Onayla ve sonraki</b>.</li>
+  <li><span class="p">4</span><b>📚 Kaynaklar</b>Rapora bağlantı ya da dosya (en çok 15 MB) ekleyin; PDF'in sonunda <b>Kaynakça</b> olarak çıkar. Tablo kaynakları da kendiliğinden eklenir.</li>
+  <li><span class="p">5</span><b>⬆ Önceki raporu aktar</b>Geçen yılın PDF'i yüklenir, metinler bölümlere yerleşir.</li>
+  <li><span class="p">6</span><b>📄 Rapor üret</b>Kapak, içindekiler, tablolar, grafikler ve kaynakçayla PDF; <b>🗂 Üretilen sürümler</b> listesine girer ve iner.</li>
+</ol>
+<div class="tip">Rakamlar yalnızca resmî kaynak tablolarından alınır. Tablo taraması sunucu sürümünde çalışır.</div>
+</section>
+
+<section class="page" id="k5">
+<h2><span class="n">5</span> Kaynaklar ve tarama saatleri</h2>
+<p class="lead">Menüdeki <b>Kaynaklar</b> bölümü: robotun taradığı siteler ve Telegram kanalları, tarama saatleri ve fotoğraf ayarı.</p>
+<div class="shot"><img src="guide/k2-kaynaklar.png" alt="Kaynaklar"></div>
+<ol class="steps">
+  <li><span class="p">1</span><b>Tarama saatleri</b>06:00–22:00 arası saatleri seçin (Taşkent saati) ve <b>Kaydet</b>. Robot yalnız bu saatlerde tarar; hiç saat seçilmezse otomatik tarama kapalıdır.</li>
+  <li><span class="p">2</span><b>Haber fotoğrafları</b>Bülten haberleri varsayılan olarak fotoğraflı mı fotoğrafsız mı olsun. Tek tek haber için ortadaki 🖼 düğmesi kullanılır.</li>
+  <li><span class="p">3</span><b>＋ Kaynak ekle</b>Site adresi (ör. gazeta.uz) ya da Telegram kanalı yazın. Eklediğiniz kaynak bir sonraki taramada okunur.</li>
+  <li><span class="p">4</span><b>Haberlerini gör</b>Bir kaynağın kartından o kaynağın haberlerine gidilir; kaynak açılıp kapatılabilir.</li>
+</ol>
+</section>
+
+<section class="page" id="k4">
+<h2><span class="n">6</span> Robotlar ne zaman çalışır?</h2>
+<p class="lead">Robotlar arkada kendiliğinden çalışır; panelin açık olması gerekmez.</p>
+<table class="rb">
+  <tr><th>İş</th><th>Ne zaman</th></tr>
+  <tr><td><b>Haber tarama ve Türkçe çeviri</b></td><td>Kaynaklar'da seçtiğiniz saatlerde (Taşkent saati)</td></tr>
+  <tr><td><b>Otomatik bülten listesi</b></td><td>✦ Otomatik penceresinde seçtiğiniz gün ve saatte</td></tr>
+  <tr><td><b>Rapor tabloları</b></td><td>Sunucu sürümünde günde bir kez (UN Comtrade, Dünya Bankası, SIAT)</td></tr>
+  <tr><td><b>Yedek</b></td><td>Sunucu sürümünde her gece 03:15 (14 gün saklanır)</td></tr>
+</table>
+<div class="tip ok"><b>⟳ Şimdi tara</b> beklemeden aynı işi hemen yapar.</div>
+</section>
+
+<section class="page" id="k6">
+<h2><span class="n">7</span> Türkçe / Özbekçe</h2>
+<p class="lead">Sol alttaki <b>TR | UZ</b> ile panelin dili değişir. Bülten ve video Özbekçe (Lotin) de üretilir: Haber ve Bülten'de dili <b>UZ</b> seçin.</p>
+<div class="uz"><b>O‘zbekcha qisqacha:</b> Menyu: Bosh sahifa · Yangiliklar va byulleten · Hisobotlar · Manbalar · Yordam.
+1) Robot manbalarni siz tanlagan soatlarda tekshiradi va yangiliklarni turk tiliga tarjima qiladi.
+2) “✦ Avtomatik” yangiliklarni siz uchun tanlaydi; o‘zingiz ham “＋ Byulletenga qo‘shish” bilan qo‘shishingiz mumkin. Sarlavhani bossangiz, yangilik o‘qish oynasida ochiladi.
+3) O‘rta ustunda ✎ bilan tuzating, ✕ bilan olib tashlang.
+4) “📄 Byulleten yaratish” → ko‘rib chiqish → “Tasdiqlash va PDF yuklab olish”. Byulleten arxivga tushadi, ro‘yxat bo‘shaydi.</div>
+</section>
+
+<section id="k7">
+<h2><span class="n">8</span> Renkler ve ipuçları</h2>
+<div class="two">
+  <div class="tip ok"><b>Bülten</b>
+    <div class="legend"><span><i style="background:#1e7a3c"></i>tamam / onaylı</span><span><i style="background:#e9a23b"></i>uyarı</span><span><i style="background:#8B1A1A"></i>sıradaki adım</span></div></div>
+  <div class="tip"><b>Rapor bölümleri</b>
+    <div class="legend"><span><i style="background:#c4bdb6"></i>boş</span><span><i style="background:#e9a23b"></i>önceki rapordan</span><span><i style="background:#2f6db5"></i>veri güncel</span><span><i style="background:#6a3d9a"></i>taslak</span><span><i style="background:#1e7a3c"></i>onaylandı</span></div></div>
+</div>
+<ul class="steps" style="grid-template-columns:1fr 1fr">
+  <li><span class="p">!</span><b>Haber açılmıyor</b>Başlığa ya da fotoğrafa tıklayın; okuma penceresi açılır. Yeni gelen haberin tam metni robotun bir sonraki taramasında eklenir.</li>
+  <li><span class="p">!</span><b>Bülten üretilmiyor</b>Rakam uyarısı var; ⚠ işaretli haberi ✎ ile düzeltin ya da ✕ ile çıkarın.</li>
+  <li><span class="p">!</span><b>Yeni haber gelmiyor</b>Kaynaklar'da tarama saati seçili mi bakın ya da <b>⟳ Şimdi tara</b>'ya basın.</li>
+  <li><span class="p">📱</span><b>Telefondan</b>Panel telefon uyumludur: alt menü çubuğu, tek sütun düzen.</li>
+</ul>
+</section>
+
+<footer>Taşkent Ticaret Müşavirliği · Bülten Robotu · Kılavuz 12.11.2026</footer>
+</div>
+</body>
+</html>

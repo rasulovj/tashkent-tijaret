@@ -1,0 +1,24 @@
+{
+	email {$ACME_EMAIL}
+}
+
+# Let's Encrypt sertifikası otomatik alınır ve yenilenir
+{$DOMAIN} {
+	encode gzip
+	request_body {
+		max_size 50MB
+	}
+	header {
+		Strict-Transport-Security "max-age=31536000"
+		X-Content-Type-Options nosniff
+		X-Frame-Options SAMEORIGIN
+		Referrer-Policy same-origin
+		X-Robots-Tag "noindex, nofollow"
+		-Server
+	}
+	reverse_proxy panel:8765 {
+		transport http {
+			read_timeout 15m    # video ve rapor üretimi uzun sürebilir
+		}
+	}
+}

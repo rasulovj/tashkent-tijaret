@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bilgi Gönder – Taşkent Ticaret</title>
+<style>
+  :root { --red: #8B1A1A; --ink: #1d1d1f; --muted: #6b6b70; --line: #e6e2dc; --bg: #f6f4f1; --ok: #1e7a3c; --warn: #a35f00; --blue: #2f6db5; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; color: var(--ink); background: var(--bg); }
+  header { background: #241a1a; color: #fff; padding: 14px 22px; display: flex; align-items: center; gap: 12px; }
+  header .mark { width: 36px; height: 36px; border-radius: 9px; background: var(--red); display: grid; place-items: center; font: bold italic 15px Georgia, serif; }
+  header b { font: bold italic 16px Georgia, serif; }
+  header .sp { flex: 1; }
+  header a, header button { color: #d9cfcc; background: none; border: 0; font: inherit; cursor: pointer; text-decoration: none; margin-left: 8px; }
+  header a.on { color: #fff; font-weight: 700; }
+  main { max-width: 980px; margin: 0 auto; padding: 22px 16px 60px; display: grid; grid-template-columns: 1fr 340px; gap: 18px; }
+  @media (max-width: 860px) { main { grid-template-columns: 1fr; } }
+  .card { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; }
+  h2 { margin: 0 0 4px; font-size: 18px; } .hint { color: var(--muted); font-size: 13px; }
+  label { display: block; font-size: 12.5px; color: var(--muted); margin: 12px 0 4px; }
+  input, textarea, select { width: 100%; font: inherit; padding: 9px 11px; border: 1px solid var(--line); border-radius: 9px; background: #fff; }
+  textarea { min-height: 130px; resize: vertical; }
+  .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .types { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 6px; }
+  .types button { padding: 12px 6px; border: 1px solid var(--line); border-radius: 10px; background: #fff; font: 600 14px system-ui; cursor: pointer; }
+  .types button.on { border-color: var(--red); background: #f6e7e2; color: var(--red); }
+  .wants label { display: inline-flex; gap: 6px; align-items: center; margin: 6px 14px 0 0; color: var(--ink); font-size: 14px; }
+  .wants input { width: auto; }
+  .drop { border: 2px dashed #d7cfc8; border-radius: 12px; padding: 16px; text-align: center; color: var(--muted); cursor: pointer; margin-top: 4px; }
+  .drop.over { border-color: var(--red); background: #fbf3f0; }
+  .files div { font-size: 13px; padding: 4px 0; display: flex; justify-content: space-between; }
+  .send { width: 100%; margin-top: 18px; padding: 12px; background: var(--red); color: #fff; border: 0; border-radius: 10px; font: 600 15px system-ui; cursor: pointer; }
+  .send:disabled { opacity: .5; }
+  .sub { border-bottom: 1px solid #f0ece7; padding: 10px 0; } .sub:last-child { border-bottom: 0; }
+  .st { font-size: 11.5px; padding: 2px 9px; border-radius: 99px; font-weight: 600; white-space: nowrap; }
+  .st.yeni { background: #e6eef9; color: var(--blue); } .st.inceleniyor { background: #fff3d6; color: var(--warn); }
+  .st.yayina_alindi { background: #e4f3e9; color: var(--ok); } .st.reddedildi { background: #fde8e6; color: #a1261b; }
+  .note { background: #faf8f6; border-left: 3px solid var(--red); padding: 6px 10px; font-size: 13px; margin-top: 6px; border-radius: 4px; }
+  #toast { position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%); background: #222; color: #fff; padding: 10px 18px; border-radius: 9px; opacity: 0; transition: .2s; }
+  #toast.show { opacity: .96; } #toast.err { background: #a1261b; }
+  .ev { display: none; } .ev.on { display: block; }
+</style>
+</head>
+<body>
+<header><div class="mark">TM</div><div><b data-t="brand">Taşkent Ticaret Müşavirliği</b><div class="hint" style="color:#a99c98" id="who"></div></div>
+  <span class="sp"></span><a href="#" data-l="tr">TR</a><a href="#" data-l="uz">UZ</a><button id="out" data-t="logout">Çıkış</button></header>
+<main>
+  <section class="card">
+    <h2 data-t="h">Bilgi gönder</h2>
+    <div class="hint" data-t="hh">Gönderdiğiniz bilgi Ticaret Müşavirliği tarafından incelenir; uygun görülürse bültende veya Telegram kanallarında yayımlanır.</div>
+    <label data-t="type">Tür</label>
+    <div class="types" id="types"></div>
+    <label data-t="title">Başlık *</label><input id="title" maxlength="200">
+    <label data-t="text">Metin</label><textarea id="text"></textarea>
+    <div class="ev" id="ev">
+      <div class="g2"><div><label data-t="date">Tarih</label><input type="date" id="date"></div><div><label data-t="date_end">Bitiş tarihi</label><input type="date" id="date_end"></div></div>
+      <div class="g2"><div><label data-t="time">Saat</label><input id="time" placeholder="10:00 – 18:00"></div><div><label data-t="deadline">Son başvuru</label><input type="date" id="deadline"></div></div>
+      <label data-t="place">Yer</label><input id="place">
+    </div>
+    <div class="g2"><div><label data-t="link">Bağlantı</label><input id="link" placeholder="https://…"></div><div><label data-t="contact">İletişim kişisi</label><input id="contact"></div></div>
+    <label data-t="files">Ekler (fotoğraf, PDF, Word – en fazla 25 MB)</label>
+    <div class="drop" id="drop" data-t="drop">Dosyaları buraya sürükleyin veya tıklayın</div>
+    <input type="file" id="file" multiple hidden accept=".pdf,.jpg,.jpeg,.png,.webp,.doc,.docx,.xlsx,.mp4">
+    <div class="files" id="flist"></div>
+    <label data-t="wants">Önerilen yayın yeri</label>
+    <div class="wants"><label><input type="checkbox" value="bulten" checked> <span data-t="w1">Haftalık bülten</span></label>
+      <label><input type="checkbox" value="telegram"> <span data-t="w2">Telegram</span></label></div>
+    <label data-t="lang">Metnin dili</label><select id="lang"><option value="tr">Türkçe</option><option value="uz">O‘zbekcha</option><option value="en">English</option><option value="ru">Русский</option></select>
+    <button class="send" id="send" data-t="send">Gönder</button>
+  </section>
+  <aside class="card"><h2 data-t="mine">Gönderdiklerim</h2><div class="hint" data-t="mineh">Durumu buradan izleyin.</div><div id="mine"></div></aside>
+</main>
+<div id="toast"></div>
+<script>
+const TYPES = { haber: ["Haber", "Yangilik"], duyuru: ["Duyuru", "E’lon"], etkinlik: ["Etkinlik", "Tadbir"], mesaj: ["Mesaj / bilgi", "Xabar"] };
+const ST = { yeni: ["Yeni", "Yangi"], inceleniyor: ["İnceleniyor", "Ko‘rib chiqilmoqda"], yayina_alindi: ["Yayına alındı", "Nashrga olindi"], reddedildi: ["Reddedildi", "Rad etildi"] };
+const UZ = { brand: "Toshkent Savdo maslahatchiligi", logout: "Chiqish", h: "Ma’lumot yuborish",
+  hh: "Yuborgan ma’lumotingiz Savdo maslahatchiligi tomonidan ko‘rib chiqiladi; ma’qul topilsa byulleten, e’lonlar yoki Telegram kanallarida nashr etiladi.",
+  type: "Turi", title: "Sarlavha *", text: "Matn", date: "Sana", date_end: "Tugash sanasi", time: "Vaqt", deadline: "Ariza muddati", place: "Joy",
+  link: "Havola", contact: "Mas’ul shaxs", files: "Ilovalar (rasm, PDF, Word – 25 MB gacha)", drop: "Fayllarni shu yerga tashlang yoki bosing",
+  wants: "Tavsiya etilgan nashr joyi", w1: "Haftalik byulleten", w2: "Telegram", w3: "E’lon / afisha", lang: "Matn tili", send: "Yuborish",
+  mine: "Yuborganlarim", mineh: "Holatini shu yerdan kuzating." };
+const TR = {}; document.querySelectorAll("[data-t]").forEach(e => TR[e.dataset.t] = e.textContent);
+let L = "tr", type = "haber", files = [], me = null;
+try { L = localStorage.getItem("ui") || "tr"; } catch (e) {}
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const ix = () => L === "uz" ? 1 : 0;
+function toast(m, err) { const t = $("#toast"); t.textContent = m; t.className = "show" + (err ? " err" : ""); setTimeout(() => t.className = "", 3000); }
+function setL(l) { L = l; try { localStorage.setItem("ui", l); } catch (e) {} document.querySelectorAll("[data-t]").forEach(e => e.textContent = (l === "uz" ? UZ : TR)[e.dataset.t]);
+  document.querySelectorAll("header a").forEach(a => a.classList.toggle("on", a.dataset.l === l)); renderTypes(); renderMine(); if (me) $("#who").textContent = me.name + " · " + me.inst_name; }
+function renderTypes() { $("#types").innerHTML = Object.entries(TYPES).map(([k, v]) => `<button type="button" data-k="${k}" class="${k === type ? "on" : ""}">${v[ix()]}</button>`).join("");
+  document.querySelectorAll("#types button").forEach(b => b.onclick = () => { type = b.dataset.k; renderTypes(); });
+  $("#ev").classList.toggle("on", type === "etkinlik" || type === "duyuru"); }
+function renderFiles() { $("#flist").innerHTML = files.map((f, i) => `<div><span>📎 ${esc(f.name)} · ${(f.size / 1024).toFixed(0)} KB</span><a href="#" data-i="${i}">✕</a></div>`).join("");
+  document.querySelectorAll("#flist a").forEach(a => a.onclick = e => { e.preventDefault(); files.splice(+a.dataset.i, 1); renderFiles(); }); }
+let mine = [];
+function renderMine() { $("#mine").innerHTML = mine.map(s => `<div class="sub"><div style="display:flex;gap:8px;align-items:start"><b style="flex:1;font-size:14px">${esc(s.title)}</b><span class="st ${s.status}">${ST[s.status][ix()]}</span></div>
+    <div class="hint">${TYPES[s.type][ix()]} · ${s.created.replace("T", " ").slice(0, 16)}${s.files.length ? " · 📎 " + s.files.length : ""}</div>
+    ${s.note ? `<div class="note">${esc(s.note)}</div>` : ""}</div>`).join("") || `<div class="hint" style="margin-top:10px">—</div>`; }
+async function loadMine() { mine = await (await fetch("/api/sub/mine")).json(); renderMine(); }
+const drop = $("#drop");
+drop.onclick = () => $("#file").click();
+$("#file").onchange = e => { files.push(...e.target.files); renderFiles(); };
+drop.ondragover = e => { e.preventDefault(); drop.classList.add("over"); }; drop.ondragleave = () => drop.classList.remove("over");
+drop.ondrop = e => { e.preventDefault(); drop.classList.remove("over"); files.push(...e.dataTransfer.files); renderFiles(); };
+const read = f => new Promise((ok, err) => { const r = new FileReader(); r.onload = () => ok(r.result); r.onerror = err; r.readAsDataURL(f); });
+$("#send").onclick = async () => {
+  if (!$("#title").value.trim()) return toast(L === "uz" ? "Sarlavha kiriting." : "Başlık yazın.", true);
+  $("#send").disabled = true;
+  try {
+    const body = { type, lang: $("#lang").value, wants: [...document.querySelectorAll(".wants input:checked")].map(i => i.value), files: [] };
+    ["title", "text", "date", "date_end", "time", "deadline", "place", "link", "contact"].forEach(k => body[k] = $("#" + k).value);
+    for (const f of files) body.files.push({ name: f.name, data: await read(f) });
+    const r = await fetch("/api/sub/new", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
+    const j = await r.json(); if (!r.ok) throw new Error(j.error);
+    ["title", "text", "date", "date_end", "time", "deadline", "place", "link"].forEach(k => $("#" + k).value = ""); files = []; renderFiles();
+    toast(L === "uz" ? "Yuborildi. Rahmat!" : "Gönderildi. Teşekkürler!"); loadMine();
+  } catch (e) { toast(e.message, true); } finally { $("#send").disabled = false; }
+};
+$("#out").onclick = async () => { await fetch("/api/logout", { method: "POST", headers: { "Content-Type": "application/json" }, body: "{}" }); location.href = "/giris"; };
+document.querySelectorAll("header a").forEach(a => a.onclick = e => { e.preventDefault(); setL(a.dataset.l); });
+(async () => { const r = await fetch("/api/me"); if (r.status === 401) return location.href = "/giris"; me = await r.json(); setL(L); loadMine(); setInterval(loadMine, 30000); })();
+</script>
+</body>
+</html>

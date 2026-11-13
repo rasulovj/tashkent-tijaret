@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Giriş – Taşkent Ticaret</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; min-height: 100vh; display: grid; place-items: center; font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
+         background: linear-gradient(135deg, #241a1a 0%, #3a2424 55%, #8B1A1A 140%); color: #1d1d1f; padding: 16px; }
+  .box { background: #fff; border-radius: 18px; padding: 34px 32px; width: 100%; max-width: 400px; box-shadow: 0 20px 60px rgba(0,0,0,.35); }
+  .mark { width: 54px; height: 54px; border-radius: 14px; background: #8B1A1A; color: #fff; display: grid; place-items: center; font: bold italic 22px Georgia, serif; margin-bottom: 14px; }
+  h1 { margin: 0 0 4px; font: bold italic 22px Georgia, serif; color: #8B1A1A; }
+  p { margin: 0 0 20px; color: #6b6b70; font-size: 13.5px; }
+  label { display: block; font-size: 12.5px; color: #6b6b70; margin: 12px 0 4px; }
+  input { width: 100%; font: inherit; padding: 10px 12px; border: 1px solid #e6e2dc; border-radius: 9px; }
+  input:focus { outline: 2px solid #e8c1b6; border-color: #8B1A1A; }
+  button { width: 100%; margin-top: 20px; padding: 11px; font: 600 15px system-ui, sans-serif; color: #fff; background: #8B1A1A; border: 0; border-radius: 9px; cursor: pointer; }
+  button:hover { background: #741414; }
+  .err { color: #a1261b; font-size: 13px; min-height: 20px; margin-top: 10px; }
+  .lang { position: fixed; top: 14px; right: 16px; }
+  .lang a { color: #d9cfcc; margin-left: 8px; text-decoration: none; font-size: 13px; }
+  .lang a.on { color: #fff; font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="lang"><a href="#" data-l="tr">TR</a><a href="#" data-l="uz">UZ</a></div>
+<form class="box" id="f">
+  <div class="mark">TM</div>
+  <h1 data-t="title">Taşkent Ticaret Müşavirliği</h1>
+  <p data-t="sub">Bilgi gönderme ve yayın paneli. Birim kullanıcı adınız ve şifrenizle girin.</p>
+  <div id="setup" hidden>
+    <label data-t="code">Kurulum kodu (panelin çalıştığı bilgisayardaki config/kurulum-kodu.txt)</label><input id="c" autocomplete="off">
+    <label data-t="name">Adınız Soyadınız</label><input id="n" autocomplete="name">
+  </div>
+  <label data-t="user">Kullanıcı adı</label><input id="u" autocomplete="username" required>
+  <label data-t="pass">Şifre</label><input id="p" type="password" autocomplete="current-password" required>
+  <button data-t="go">Giriş</button>
+  <div class="err" id="e"></div>
+</form>
+<script>
+const T = { uz: { title: "Toshkent Savdo maslahatchiligi", sub: "Ma’lumot yuborish va nashr paneli. Bo‘lim foydalanuvchi nomi va parolingiz bilan kiring.",
+                  user: "Foydalanuvchi nomi", pass: "Parol", go: "Kirish",
+                  code: "O‘rnatish kodi (panel ishlayotgan kompyuterdagi config/kurulum-kodu.txt)", name: "Ism familiyangiz" } };
+let SETUP = false;
+const TR = {}; document.querySelectorAll("[data-t]").forEach(e => TR[e.dataset.t] = e.textContent);
+function setL(l) { const d = l === "uz" ? T.uz : TR; document.querySelectorAll("[data-t]").forEach(e => e.textContent = d[e.dataset.t]);
+  document.querySelectorAll(".lang a").forEach(a => a.classList.toggle("on", a.dataset.l === l)); try { localStorage.setItem("ui", l); } catch (e) {} }
+document.querySelectorAll(".lang a").forEach(a => a.onclick = e => { e.preventDefault(); setL(a.dataset.l); });
+let l = "tr"; try { l = localStorage.getItem("ui") || "tr"; } catch (e) {} setL(l);
+fetch("/api/setup-status").then(r => r.json()).then(j => {
+  if (!j.needed) return;
+  SETUP = true; document.getElementById("setup").hidden = false;
+  document.querySelector("[data-t=sub]").textContent = l === "uz"
+    ? "Birinchi o‘rnatish: yonetici (administrator) hisobingizni yarating. Parol kamida 8 belgi."
+    : "İlk kurulum: yönetici hesabınızı oluşturun. Şifre en az 8 karakter olmalı.";
+  document.querySelector("[data-t=go]").textContent = l === "uz" ? "Hisobni yaratish" : "Yönetici hesabını oluştur";
+  document.getElementById("p").autocomplete = "new-password";
+});
+document.getElementById("f").onsubmit = async e => {
+  e.preventDefault(); document.getElementById("e").textContent = "";
+  const v = id => document.getElementById(id).value;
+  const r = await fetch(SETUP ? "/api/setup" : "/api/login", { method: "POST", headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ username: v("u"), password: v("p"), code: v("c"), name: v("n") }) });
+  const j = await r.json();
+  if (!r.ok) { document.getElementById("e").textContent = j.error; return; }
+  location.href = j.go;
+};
+</script>
+</body>
+</html>

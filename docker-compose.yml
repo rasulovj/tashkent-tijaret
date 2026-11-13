@@ -1,0 +1,36 @@
+# Kullanım: .env dosyasını doldurun, sonra:  docker compose up -d --build
+services:
+  panel:
+    build: .
+    image: taskentticaret-panel
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      PANEL_PUBLIC: "1"
+    volumes:
+      - ./config:/app/config   # ayarlar, kullanıcılar, API anahtarları (gizli – imaja girmez)
+      - ./data:/app/data       # bültenler, raporlar, duyurular, gelen kutusu
+    shm_size: "1gb"            # Chrome için
+    expose:
+      - "8765"                 # yalnızca Caddy görür; internete doğrudan açık değil
+
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    environment:
+      DOMAIN: ${DOMAIN:?.env içinde DOMAIN boş}
+      ACME_EMAIL: ${ACME_EMAIL:?.env içinde ACME_EMAIL boş}
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data       # HTTPS sertifikaları
+      - caddy_config:/config
+    depends_on:
+      - panel
+
+volumes:
+  caddy_data:
+  caddy_config:

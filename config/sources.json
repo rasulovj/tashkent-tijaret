@@ -1,0 +1,551 @@
+{
+  "sources": [
+    {
+      "name": "Gazeta.uz",
+      "lang": "en",
+      "url": "https://www.gazeta.uz/en/rss/",
+      "group": "Özbekistan basını"
+    },
+    {
+      "name": "Daryo.uz",
+      "lang": "en",
+      "url": "https://daryo.uz/en/feed",
+      "group": "Özbekistan basını"
+    },
+    {
+      "name": "UzDaily.uz",
+      "lang": "en",
+      "url": "https://www.uzdaily.uz/en/rss",
+      "group": "Özbekistan basını"
+    },
+    {
+      "name": "UzA",
+      "lang": "en",
+      "url": "https://uza.uz/en/rss",
+      "group": "Özbekistan basını"
+    },
+    {
+      "name": "Spot.uz",
+      "lang": "ru",
+      "url": "https://www.spot.uz/ru/rss/",
+      "group": "Özbekistan basını"
+    },
+    {
+      "name": "Kursiv.uz",
+      "lang": "ru",
+      "url": "https://uz.kursiv.media/feed/",
+      "group": "Özbekistan basını"
+    },
+    {
+      "name": "Türk Basını – Ekonomi",
+      "group": "Türk basını",
+      "lang": "tr",
+      "publisher_from_title": true,
+      "url": "https://news.google.com/rss/search?q=%C3%96zbekistan+(ekonomi+OR+ticaret+OR+yat%C4%B1r%C4%B1m+OR+ihracat+OR+enerji)&hl=tr&gl=TR&ceid=TR:tr"
+    },
+    {
+      "name": "Türk Basını – Genel",
+      "group": "Türk basını",
+      "lang": "tr",
+      "publisher_from_title": true,
+      "url": "https://news.google.com/rss/search?q=%C3%96zbekistan&hl=tr&gl=TR&ceid=TR:tr"
+    },
+    {
+      "name": "AA Ekonomi",
+      "group": "Türk basını",
+      "lang": "tr",
+      "filter": [
+        "özbek",
+        "taşkent",
+        "semerkant",
+        "buhara",
+        "fergana",
+        "mirziyoyev",
+        "uzbek"
+      ],
+      "url": "https://www.aa.com.tr/tr/rss/default?cat=ekonomi"
+    },
+    {
+      "name": "AA Dünya",
+      "group": "Türk basını",
+      "lang": "tr",
+      "filter": [
+        "özbek",
+        "taşkent",
+        "semerkant",
+        "buhara",
+        "fergana",
+        "mirziyoyev",
+        "uzbek"
+      ],
+      "url": "https://www.aa.com.tr/tr/rss/default?cat=dunya"
+    },
+    {
+      "name": "TRT Haber Ekonomi",
+      "group": "Türk basını",
+      "lang": "tr",
+      "filter": [
+        "özbek",
+        "taşkent",
+        "semerkant",
+        "buhara",
+        "fergana",
+        "mirziyoyev",
+        "uzbek"
+      ],
+      "url": "https://www.trthaber.com/ekonomi_articles.rss"
+    },
+    {
+      "name": "Dünya Gazetesi",
+      "group": "Türk basını",
+      "lang": "tr",
+      "filter": [
+        "özbek",
+        "taşkent",
+        "semerkant",
+        "buhara",
+        "fergana",
+        "mirziyoyev",
+        "uzbek"
+      ],
+      "url": "https://www.dunya.com/rss"
+    },
+    {
+      "name": "TRT Avaz",
+      "group": "TRT Avaz",
+      "lang": "tr",
+      "publisher_from_title": true,
+      "url": "https://news.google.com/rss/search?q=site:trtavaz.com.tr+%C3%96zbekistan&hl=tr&gl=TR&ceid=TR:tr"
+    },
+    {
+      "name": "TRT Avaz YouTube",
+      "group": "TRT Avaz",
+      "lang": "tr",
+      "kind": "youtube",
+      "filter": [
+        "özbek",
+        "taşkent",
+        "semerkant",
+        "buhara",
+        "fergana",
+        "mirziyoyev",
+        "uzbek",
+        "türkistan",
+        "orta asya",
+        "türk devletleri",
+        "türk dünyası"
+      ],
+      "url": "https://www.youtube.com/feeds/videos.xml?user=trtavaz"
+    },
+    {
+      "name": "Hürriyet Ekonomi",
+      "group": "Türk basını",
+      "lang": "tr",
+      "filter": [
+        "özbek",
+        "taşkent",
+        "semerkant",
+        "buhara",
+        "fergana",
+        "mirziyoyev",
+        "uzbek",
+        "türk devletleri teşkilatı"
+      ],
+      "url": "https://www.hurriyet.com.tr/rss/ekonomi"
+    },
+    {
+      "name": "Sabah Ekonomi",
+      "group": "Türk basını",
+      "lang": "tr",
+      "filter": [
+        "özbek",
+        "taşkent",
+        "semerkant",
+        "buhara",
+        "fergana",
+        "mirziyoyev",
+        "uzbek",
+        "türk devletleri teşkilatı"
+      ],
+      "url": "https://www.sabah.com.tr/rss/ekonomi.xml"
+    },
+    {
+      "name": "Milliyet Ekonomi",
+      "group": "Türk basını",
+      "lang": "tr",
+      "filter": [
+        "özbek",
+        "taşkent",
+        "semerkant",
+        "buhara",
+        "fergana",
+        "mirziyoyev",
+        "uzbek",
+        "türk devletleri teşkilatı"
+      ],
+      "url": "https://www.milliyet.com.tr/rss/rssnew/ekonomirss.xml"
+    },
+    {
+      "name": "Habertürk Ekonomi",
+      "group": "Türk basını",
+      "lang": "tr",
+      "filter": [
+        "özbek",
+        "taşkent",
+        "semerkant",
+        "buhara",
+        "fergana",
+        "mirziyoyev",
+        "uzbek",
+        "türk devletleri teşkilatı"
+      ],
+      "url": "https://www.haberturk.com/rss/ekonomi.xml"
+    },
+    {
+      "name": "Ekonomim",
+      "group": "Türk basını",
+      "lang": "tr",
+      "filter": [
+        "özbek",
+        "taşkent",
+        "semerkant",
+        "buhara",
+        "fergana",
+        "mirziyoyev",
+        "uzbek",
+        "türk devletleri teşkilatı"
+      ],
+      "url": "https://www.ekonomim.com/export/rss"
+    },
+    {
+      "name": "Bloomberg HT",
+      "group": "Türk basını",
+      "lang": "tr",
+      "filter": [
+        "özbek",
+        "taşkent",
+        "semerkant",
+        "buhara",
+        "fergana",
+        "mirziyoyev",
+        "uzbek",
+        "türk devletleri teşkilatı"
+      ],
+      "url": "https://www.bloomberght.com/rss"
+    },
+    {
+      "name": "Yeni Şafak Ekonomi",
+      "group": "Türk basını",
+      "lang": "tr",
+      "filter": [
+        "özbek",
+        "taşkent",
+        "semerkant",
+        "buhara",
+        "fergana",
+        "mirziyoyev",
+        "uzbek",
+        "türk devletleri teşkilatı"
+      ],
+      "url": "https://www.yenisafak.com/rss?xml=ekonomi"
+    },
+    {
+      "name": "CNN Türk Ekonomi",
+      "group": "Türk basını",
+      "lang": "tr",
+      "filter": [
+        "özbek",
+        "taşkent",
+        "semerkant",
+        "buhara",
+        "fergana",
+        "mirziyoyev",
+        "uzbek",
+        "türk devletleri teşkilatı"
+      ],
+      "url": "https://www.cnnturk.com/feed/rss/ekonomi/news"
+    },
+    {
+      "name": "TRT Haber Dünya",
+      "group": "Türk basını",
+      "lang": "tr",
+      "filter": [
+        "özbek",
+        "taşkent",
+        "semerkant",
+        "buhara",
+        "fergana",
+        "mirziyoyev",
+        "uzbek",
+        "türk devletleri teşkilatı"
+      ],
+      "url": "https://www.trthaber.com/dunya_articles.rss"
+    },
+    {
+      "name": "Sözcü Ekonomi",
+      "group": "Türk basını",
+      "lang": "tr",
+      "filter": [
+        "özbek",
+        "taşkent",
+        "semerkant",
+        "buhara",
+        "fergana",
+        "mirziyoyev",
+        "uzbek",
+        "türk devletleri teşkilatı"
+      ],
+      "url": "https://www.sozcu.com.tr/feeds-rss-category-ekonomi"
+    },
+    {
+      "name": "Haber7",
+      "group": "Türk basını",
+      "lang": "tr",
+      "filter": [
+        "özbek",
+        "taşkent",
+        "semerkant",
+        "buhara",
+        "fergana",
+        "mirziyoyev",
+        "uzbek",
+        "türk devletleri teşkilatı"
+      ],
+      "url": "https://i12.haber7.net/sondakika/newsstand/latest.xml"
+    },
+    {
+      "name": "Türkiye Gazetesi",
+      "group": "Türk basını",
+      "lang": "tr",
+      "filter": [
+        "özbek",
+        "taşkent",
+        "semerkant",
+        "buhara",
+        "fergana",
+        "mirziyoyev",
+        "uzbek",
+        "türk devletleri teşkilatı"
+      ],
+      "url": "https://www.turkiyegazetesi.com.tr/feed"
+    },
+    {
+      "name": "Türk Basını – Türkiye-Özbekistan",
+      "group": "Türk basını",
+      "lang": "tr",
+      "publisher_from_title": true,
+      "url": "https://news.google.com/rss/search?q=T%C3%BCrkiye+%C3%96zbekistan+(ticaret+OR+yat%C4%B1r%C4%B1m+OR+i%C5%9F+birli%C4%9Fi)&hl=tr&gl=TR&ceid=TR:tr"
+    },
+    {
+      "name": "Türk Basını – Şehirler",
+      "group": "Türk basını",
+      "lang": "tr",
+      "publisher_from_title": true,
+      "url": "https://news.google.com/rss/search?q=Ta%C5%9Fkent+OR+Semerkant+OR+Buhara+OR+Fergana+OR+Andican&hl=tr&gl=TR&ceid=TR:tr"
+    },
+    {
+      "name": "Telegram · Kun.uz",
+      "group": "Telegram",
+      "lang": "uz",
+      "kind": "telegram",
+      "handle": "kunuzofficial",
+      "url": "https://t.me/s/kunuzofficial"
+    },
+    {
+      "name": "Telegram · Gazeta.uz",
+      "group": "Telegram",
+      "lang": "ru",
+      "kind": "telegram",
+      "handle": "gazetauz",
+      "url": "https://t.me/s/gazetauz"
+    },
+    {
+      "name": "Telegram · Daryo",
+      "group": "Telegram",
+      "lang": "uz",
+      "kind": "telegram",
+      "handle": "daryo",
+      "url": "https://t.me/s/daryo"
+    },
+    {
+      "name": "Telegram · Spot.uz",
+      "group": "Telegram",
+      "lang": "ru",
+      "kind": "telegram",
+      "handle": "spotuz",
+      "url": "https://t.me/s/spotuz"
+    },
+    {
+      "name": "Telegram · UzDaily.uz",
+      "group": "Telegram",
+      "lang": "ru",
+      "kind": "telegram",
+      "handle": "uzdaily",
+      "url": "https://t.me/s/uzdaily"
+    },
+    {
+      "name": "Telegram · UzA",
+      "group": "Telegram",
+      "lang": "uz",
+      "kind": "telegram",
+      "handle": "uza_uz",
+      "url": "https://t.me/s/uza_uz"
+    },
+    {
+      "name": "Telegram · Kursiv",
+      "group": "Telegram",
+      "lang": "uz",
+      "kind": "telegram",
+      "handle": "kursivuz",
+      "url": "https://t.me/s/kursivuz"
+    },
+    {
+      "name": "Telegram · Yatırım, Sanayi ve Ticaret Bakanlığı",
+      "group": "Telegram",
+      "lang": "uz",
+      "kind": "telegram",
+      "handle": "miit_uz",
+      "url": "https://t.me/s/miit_uz"
+    },
+    {
+      "name": "Büyükelçilik · Telegram",
+      "kind": "telegram",
+      "handle": "TCTaskentBE",
+      "url": "https://t.me/s/TCTaskentBE",
+      "lang": "tr",
+      "institution": "buyukelcilik",
+      "group": "Temsilcilikler"
+    },
+    {
+      "name": "Büyükelçilik · Web",
+      "kind": "mfa",
+      "url": "https://taskent.be.mfa.gov.tr",
+      "lang": "tr",
+      "institution": "buyukelcilik",
+      "group": "Temsilcilikler"
+    },
+    {
+      "name": "Büyükelçilik · Basın",
+      "url": "https://news.google.com/rss/search?q=%22Ta%C5%9Fkent%20B%C3%BCy%C3%BCkel%C3%A7isi%22%20OR%20%22Ta%C5%9Fkent%20B%C3%BCy%C3%BCkel%C3%A7ili%C4%9Fi%22&hl=tr&gl=TR&ceid=TR:tr",
+      "lang": "tr",
+      "institution": "buyukelcilik",
+      "publisher_from_title": true,
+      "require": [
+        [
+          "büyükelçi"
+        ]
+      ],
+      "group": "Temsilcilikler"
+    },
+    {
+      "name": "Başkonsolosluk · Telegram",
+      "kind": "telegram",
+      "handle": "semerkantbk",
+      "url": "https://t.me/s/semerkantbk",
+      "lang": "tr",
+      "institution": "baskonsolosluk",
+      "group": "Temsilcilikler"
+    },
+    {
+      "name": "Başkonsolosluk · Web",
+      "kind": "mfa",
+      "url": "https://semerkant.bk.mfa.gov.tr",
+      "lang": "tr",
+      "institution": "baskonsolosluk",
+      "group": "Temsilcilikler"
+    },
+    {
+      "name": "Başkonsolosluk · Basın",
+      "url": "https://news.google.com/rss/search?q=%22Semerkant%20Ba%C5%9Fkonsolosu%22%20OR%20%22Semerkant%20Ba%C5%9Fkonsoloslu%C4%9Fu%22&hl=tr&gl=TR&ceid=TR:tr",
+      "lang": "tr",
+      "institution": "baskonsolosluk",
+      "publisher_from_title": true,
+      "require": [
+        [
+          "başkonsolos"
+        ]
+      ],
+      "group": "Temsilcilikler"
+    },
+    {
+      "name": "Eğitim Müşavirliği · Basın",
+      "url": "https://news.google.com/rss/search?q=%C3%96zbekistan%20%22E%C4%9Fitim%20M%C3%BC%C5%9Faviri%22%20OR%20%22E%C4%9Fitim%20M%C3%BC%C5%9Favirli%C4%9Fi%22%20Ta%C5%9Fkent&hl=tr&gl=TR&ceid=TR:tr",
+      "lang": "tr",
+      "institution": "egitim",
+      "publisher_from_title": true,
+      "require": [
+        [
+          "eğitim müşavir"
+        ],
+        [
+          "özbek",
+          "taşkent",
+          "semerkant",
+          "uzbek",
+          "toshkent"
+        ]
+      ],
+      "group": "Temsilcilikler"
+    },
+    {
+      "name": "Tarım Müşavirliği · Basın",
+      "url": "https://news.google.com/rss/search?q=%C3%96zbekistan%20%22Tar%C4%B1m%20M%C3%BC%C5%9Faviri%22%20OR%20%22Tar%C4%B1m%20ve%20Orman%20M%C3%BC%C5%9Faviri%22%20OR%20%22Tar%C4%B1m%20M%C3%BC%C5%9Favirli%C4%9Fi%22&hl=tr&gl=TR&ceid=TR:tr",
+      "lang": "tr",
+      "institution": "tarim",
+      "publisher_from_title": true,
+      "require": [
+        [
+          "tarım müşavir",
+          "tarım ve orman müşavir"
+        ],
+        [
+          "özbek",
+          "taşkent",
+          "semerkant",
+          "uzbek",
+          "toshkent"
+        ]
+      ],
+      "group": "Temsilcilikler"
+    },
+    {
+      "name": "Din Hizmetleri · Basın",
+      "url": "https://news.google.com/rss/search?q=%C3%96zbekistan%20%22Din%20Hizmetleri%20M%C3%BC%C5%9Faviri%22%20OR%20%22Din%20Hizmetleri%20M%C3%BC%C5%9Favirli%C4%9Fi%22%20OR%20Diyanet%20Ta%C5%9Fkent&hl=tr&gl=TR&ceid=TR:tr",
+      "lang": "tr",
+      "institution": "din",
+      "publisher_from_title": true,
+      "require": [
+        [
+          "din hizmetleri müşavir",
+          "diyanet işleri",
+          "diyanet vakfı",
+          "diyanet başkan"
+        ],
+        [
+          "özbek",
+          "taşkent",
+          "semerkant",
+          "uzbek",
+          "toshkent"
+        ]
+      ],
+      "group": "Temsilcilikler",
+      "exclude": [
+        "imsakiye",
+        "iftar vakti",
+        "namaz vakti",
+        "sahur",
+        "ezan vakti"
+      ]
+    }
+  ],
+  "issue": {
+    "window_days": 7,
+    "max_candidates": 40,
+    "target_items": 11
+  },
+  "autoscan": {
+    "enabled": true,
+    "minutes": 60
+  }
+}

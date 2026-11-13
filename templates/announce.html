@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="{{ a.lang }}">
+<head>
+<meta charset="utf-8">
+<style>
+  @page { size: {{ W }}px {{ H }}px; margin: 0; }
+  * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  html, body { margin: 0; width: {{ W }}px; height: {{ H }}px; overflow: hidden; }
+  body { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; background: {{ T.bg }}; color: {{ T.ink }}; position: relative; }
+  :root { --u: {{ U }}px; }   /* ölçek birimi: kısa kenarın %1'i */
+  .band { position: absolute; left: 0; right: 0; top: 0; height: calc(var(--u) * 7.5); background: {{ T.primary }}; color: #fff;
+          display: flex; align-items: center; padding: 0 calc(var(--u) * 5); font: bold italic calc(var(--u) * 2.4) Georgia, serif; letter-spacing: .03em; z-index: 3; }
+  .band .r { margin-left: auto; font: 600 calc(var(--u) * 2) "Helvetica Neue", Arial; font-style: normal; opacity: .9; }
+  .photo { position: absolute; left: 0; right: 0; top: calc(var(--u) * 7.5); height: {{ photo_h }}%; background: {{ T.soft }} center/cover no-repeat;
+           {% if photo %}background-image: url('{{ photo }}');{% endif %} }
+  .photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 45%, {{ T.bg }} 100%); }
+  .body { position: absolute; left: calc(var(--u) * 5); right: calc(var(--u) * 5); top: {{ body_top }}%; bottom: calc(var(--u) * 9); display: flex; flex-direction: column; z-index: 2; }
+  .chip { align-self: flex-start; background: {{ K.color }}; color: #fff; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+          font-size: calc(var(--u) * 2.1); padding: calc(var(--u) * .8) calc(var(--u) * 2); border-radius: calc(var(--u) * 3); margin-bottom: calc(var(--u) * 2); }
+  .chip small { font-weight: 600; opacity: .85; margin-left: calc(var(--u) * 1); letter-spacing: .04em; }
+  h1 { font: bold calc(var(--u) * {{ title_size }}) / 1.12 Georgia, "Times New Roman", serif; margin: 0 0 calc(var(--u) * 1.6); color: {{ T.ink }}; }
+  .sub { font-size: calc(var(--u) * 2.9); line-height: 1.4; color: {{ T.muted }}; margin: 0 0 calc(var(--u) * 2.4); }
+  .text { font-size: calc(var(--u) * 2.3); line-height: 1.5; color: {{ T.ink }}; margin: 0 0 calc(var(--u) * 2.4); white-space: pre-line; }
+  .facts { display: grid; grid-template-columns: auto 1fr; gap: calc(var(--u) * 1.2) calc(var(--u) * 2.4); align-items: center; margin-top: auto; }
+  .date { grid-row: span 3; background: {{ T.primary }}; color: #fff; border-radius: calc(var(--u) * 1.6); text-align: center; padding: calc(var(--u) * 1.4) calc(var(--u) * 2.4); min-width: calc(var(--u) * 15); }
+  .date .d { font: 800 calc(var(--u) * 7) / 1 "Helvetica Neue", Arial; }
+  .date .m { font: 700 calc(var(--u) * 2.2) "Helvetica Neue", Arial; text-transform: uppercase; letter-spacing: .08em; margin-top: calc(var(--u) * .6); }
+  .date .y { font-size: calc(var(--u) * 1.8); opacity: .85; }
+  .f { font-size: calc(var(--u) * 2.5); display: flex; gap: calc(var(--u) * 1.2); align-items: baseline; }
+  .f b { color: {{ T.primary }}; min-width: calc(var(--u) * 3); }
+  .deadline { display: inline-block; margin-top: calc(var(--u) * 1.6); background: {{ T.accent }}; color: #fff; font-weight: 700; font-size: calc(var(--u) * 2.2);
+              padding: calc(var(--u) * .7) calc(var(--u) * 1.8); border-radius: calc(var(--u) * .8); }
+  .qr { position: absolute; right: calc(var(--u) * 5); bottom: calc(var(--u) * 9.5); text-align: center; z-index: 3; }
+  .qr svg { width: calc(var(--u) * 15); height: calc(var(--u) * 15); background: #fff; padding: calc(var(--u) * .8); border-radius: calc(var(--u) * 1.2); display: block; box-shadow: 0 2px 10px rgba(0,0,0,.12); }
+  .qr span { display: block; font-size: calc(var(--u) * 1.6); color: {{ T.muted }}; margin-top: calc(var(--u) * .6); }
+  .foot { position: absolute; left: 0; right: 0; bottom: 0; height: calc(var(--u) * 7); background: {{ T.foot }}; color: {{ T.footInk }};
+          display: flex; align-items: center; padding: 0 calc(var(--u) * 5); font-size: calc(var(--u) * 1.9); gap: calc(var(--u) * 3); z-index: 3; }
+  .foot .bar { width: calc(var(--u) * 6); height: calc(var(--u) * .7); background: {{ T.accent }}; border-radius: 9px; }
+  .foot .r { margin-left: auto; }
+  /* kutlama / anma */
+  .cel { position: absolute; left: calc(var(--u) * 7); right: calc(var(--u) * 7); top: {% if photo %}{{ body_top }}%{% else %}calc(var(--u) * 9){% endif %}; bottom: calc(var(--u) * 9);
+         display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; z-index: 2; }
+  .cel .cdate { font: 700 calc(var(--u) * 3) "Helvetica Neue", Arial; letter-spacing: .14em; text-transform: uppercase; color: {{ T.primary }}; margin-bottom: calc(var(--u) * 1.6); }
+  .cel .cdate span { font-size: calc(var(--u) * 9); letter-spacing: 0; display: block; line-height: 1; margin-bottom: calc(var(--u) * .6); }
+  .cel h1 { font-size: calc(var(--u) * {{ title_size * 1.05 }}); }
+  .cel .rule { width: calc(var(--u) * 14); height: calc(var(--u) * .6); background: {{ T.accent }}; border-radius: 9px; margin: calc(var(--u) * 1.6) 0 calc(var(--u) * 2.2); }
+  .cel .greet { font: 600 calc(var(--u) * 3.4) / 1.35 Georgia, serif; color: {{ T.ink }}; margin: 0 0 calc(var(--u) * 1.8); }
+  .cel .ctext { font-size: calc(var(--u) * 2.4); line-height: 1.5; color: {{ T.muted }}; margin: 0; }
+  .cel.anma .greet { font-style: italic; font-weight: 400; }
+  .nophoto.cel-bg body, body.cel-bg { background: radial-gradient(circle at 50% 42%, {{ T.soft }} 0%, {{ T.bg }} 62%); }
+  .cel::before, .cel::after { content: ""; position: absolute; left: 50%; transform: translateX(-50%); width: 72%; height: 1px; background: {{ T.accent }}; opacity: .35; }
+  .cel::before { top: 0; } .cel::after { bottom: 0; }
+  .cel.anma .cdate { color: {{ T.ink }}; }
+  .wide .cel { right: 46%; }
+  .wide.nophoto .cel { right: calc(var(--u) * 7); }
+  /* yatay: fotoğraf sağ sütunda */
+  .wide .photo { left: 56%; top: calc(var(--u) * 7.5); bottom: calc(var(--u) * 7); height: auto; }
+  .wide .photo::after { background: linear-gradient(90deg, {{ T.bg }} 0%, rgba(0,0,0,0) 25%); }
+  .wide .body { right: 46%; top: 13%; }
+  .wide.nophoto .body { right: calc(var(--u) * 24); }
+  /* A4 afiş: daha fazla metin */
+  .poster .text { font-size: calc(var(--u) * 2.2); }
+  .poster .facts { margin-top: calc(var(--u) * 2); }
+</style>
+</head>
+<body class="{{ fmt }}{{ '' if photo else ' nophoto' }}{{ ' cel-bg' if a.kind in ('kutlama', 'anma') and not photo else '' }}">
+<div class="band">{{ L.office }}<span class="r">{{ K.label }}</span></div>
+{% if photo or (fmt != "wide" and a.kind not in ("kutlama", "anma")) %}<div class="photo"></div>{% endif %}
+{% if a.kind in ("kutlama", "anma") %}
+<div class="cel {{ a.kind }}">
+  {% if d %}<div class="cdate"><span>{{ d.day }}</span> {{ d.month }}</div>{% endif %}
+  <h1>{{ a.title or L.placeholder }}</h1>
+  <div class="rule"></div>
+  {% if a.subtitle %}<p class="greet">{{ a.subtitle }}</p>{% endif %}
+  {% if a.text %}<p class="ctext">{{ a.text }}</p>{% endif %}
+</div>
+{% else %}
+<div class="body">
+  <span class="chip">{{ K.label }}{% if a.tag %}<small>· {{ a.tag }}</small>{% endif %}</span>
+  <h1>{{ a.title or L.placeholder }}</h1>
+  {% if a.subtitle %}<p class="sub">{{ a.subtitle }}</p>{% endif %}
+  {% if a.text and show_text %}<p class="text">{{ a.text }}</p>{% endif %}
+  <div class="facts">
+    {% if d %}<div class="date"><div class="d">{{ d.day }}</div><div class="m">{{ d.month }}</div><div class="y">{{ d.year }}{% if d.end %} – {{ d.end }}{% endif %}</div></div>{% endif %}
+    {% if a.time %}<div class="f"><b>⏱</b>{{ a.time }}</div>{% endif %}
+    {% if a.place %}<div class="f"><b>⌖</b>{{ a.place }}</div>{% endif %}
+    {% if a.contact %}<div class="f"><b>✉</b>{{ a.contact }}</div>{% endif %}
+  </div>
+  {% if a.deadline %}<div><span class="deadline">{{ L.deadline }}: {{ deadline }}</span></div>{% endif %}
+</div>
+{% endif %}
+{% if a.link and a.kind not in ("kutlama", "anma") %}<div class="qr">{{ qr(a.link) | safe }}<span>{{ L.scan }}</span></div>{% endif %}
+<div class="foot"><span class="bar"></span>{{ L.office_full }}<span class="r">{{ L.site }}</span></div>
+</body>
+</html>

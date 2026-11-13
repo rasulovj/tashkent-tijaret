@@ -1,0 +1,38 @@
+[
+ {
+  "key": "buyukelcilik",
+  "name": "Taşkent Büyükelçiliği",
+  "short": "Büyükelçilik",
+  "color": "#8B1A1A"
+ },
+ {
+  "key": "baskonsolosluk",
+  "name": "Semerkant Başkonsolosluğu",
+  "short": "Başkonsolosluk",
+  "color": "#14325C"
+ },
+ {
+  "key": "egitim",
+  "name": "Eğitim Müşavirliği",
+  "short": "Eğitim",
+  "color": "#2f6db5"
+ },
+ {
+  "key": "tarim",
+  "name": "Tarım ve Orman Müşavirliği",
+  "short": "Tarım",
+  "color": "#1e7a3c"
+ },
+ {
+  "key": "din",
+  "name": "Din Hizmetleri Müşavirliği",
+  "short": "Din Hizmetleri",
+  "color": "#6a3d9a"
+ },
+ {
+  "key": "ticaret",
+  "name": "Ticaret Müşavirliği",
+  "short": "Ticaret",
+  "color": "#a35f00"
+ }
+]

@@ -1,0 +1,242 @@
+{
+ "type": "yatirim",
+ "name": "Yurt Dışı Yatırım Ülke Profili",
+ "description": "İş ortamı, şirket kuruluşu, vergi, teşvikler ve yatırım fırsatları. Yatırım tabloları Dünya Bankası'ndan gelir.",
+ "params": [
+  {
+   "key": "ulke",
+   "label": "Ülke",
+   "default": "Özbekistan"
+  },
+  {
+   "key": "iso3",
+   "label": "ISO3 kodu",
+   "default": "UZB"
+  },
+  {
+   "key": "yil",
+   "label": "Rapor yılı",
+   "default": 2026
+  }
+ ],
+ "cover": [
+  "{ULKE}",
+  "YURT DIŞI YATIRIM",
+  "ÜLKE PROFİLİ",
+  "{yil}"
+ ],
+ "sections": [
+  {
+   "id": "is",
+   "title": "{ULKE}’IN İŞ ORTAMI",
+   "level": 1,
+   "kind": "heading"
+  },
+  {
+   "id": "is_gost",
+   "title": "İş Ortamına İlişkin Göstergeler",
+   "level": 2,
+   "kind": "text",
+   "hint": "Dünya Bankası B-READY skorları"
+  },
+  {
+   "id": "kurulus",
+   "title": "Şirket Kuruluşuna İlişkin Mevzuat",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "turler",
+   "title": "{ulke} Kanunlarına Göre Şirket Türleri",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "belgeler",
+   "title": "Şirketlerin Kayda Alınması İçin Gerekli Belgeler",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "masraf",
+   "title": "Şirket Kaydı Masrafları",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "tescil",
+   "title": "Ayrıntılı Şirket Tescili Süreci",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "fesih",
+   "title": "Şirket Feshi",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "vergi",
+   "title": "Vergi Uygulamaları",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "sgk",
+   "title": "Sosyal Güvenlik Uygulamaları",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "alanlar",
+   "title": "Potansiyel Yatırım Alanları",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "mevzuat",
+   "title": "YABANCI YATIRIM MEVZUATI VE YATIRIM TEŞVİKLERİ",
+   "level": 1,
+   "kind": "heading"
+  },
+  {
+   "id": "yy_mev",
+   "title": "Yabancı Yatırımlara İlişkin Ülke Mevzuatı",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "tesvik",
+   "title": "Yatırım Teşvik Mevzuatı",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "gayrimenkul",
+   "title": "Yabancıların Gayrimenkul Edinimi",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "kamu_ozel",
+   "title": "Kamu – Özel Ortaklığı",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "ozel",
+   "title": "Özelleştirmeler",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "muhasebe",
+   "title": "Muhasebe ve Denetim Gereklilikleri",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "fikri",
+   "title": "Fikri Mülkiyet Hakları",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "anlasmazlik",
+   "title": "Anlaşmazlıkların Çözümü",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "yatirimlar",
+   "title": "{ULKE}’DAKİ YATIRIMLAR",
+   "level": 1,
+   "kind": "data",
+   "block": {
+    "kind": "wb_series",
+    "indicators": [
+     [
+      "NE.GDI.FTOT.CD",
+      "Sabit sermaye yatırımları (milyar $)",
+      1e-09,
+      1
+     ],
+     [
+      "NE.GDI.FTOT.KD.ZG",
+      "Büyüme (%)",
+      1,
+      1
+     ],
+     [
+      "BX.KLT.DINV.CD.WD",
+      "DYY girişi (milyar $)",
+      1e-09,
+      2
+     ],
+     [
+      "BX.KLT.DINV.WD.GD.ZS",
+      "DYY girişi (GSYH %)",
+      1,
+      1
+     ]
+    ],
+    "years": 6,
+    "chart": "line"
+   }
+  },
+  {
+   "id": "firsat",
+   "title": "{ULKE}’DAKİ YABANCI YATIRIMLAR VE YATIRIM FIRSATLARI SUNAN SEKTÖRLER",
+   "level": 1,
+   "kind": "heading"
+  },
+  {
+   "id": "yabanci_firma",
+   "title": "{ulke}’da Yerleşik Yabancı Sermayeli Firmalar",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "sektorler",
+   "title": "Yatırım Fırsatları Sunan Sektörler ve Önde Gelen Yabancı Yatırımlar",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "turk_firma",
+   "title": "{ulke}’da Yerleşik Türk Sermayeli Firmalar",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "turk_yatirim",
+   "title": "Önde Gelen Bazı Türk Yatırımları",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "yararli",
+   "title": "YATIRIMCILAR İÇİN YARARLI BİLGİLER",
+   "level": 1,
+   "kind": "heading"
+  },
+  {
+   "id": "linkler",
+   "title": "Faydalı Linkler",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "danisman",
+   "title": "Ulaşılabilecek Hukuki & Mali Danışmanlık Şirket ve Bürolarına İlişkin Bilgiler",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "b2b",
+   "title": "{ulke}’da Faaliyet Gösteren Danışmanlık ve B2B Firmaları",
+   "level": 2,
+   "kind": "text"
+  }
+ ]
+}

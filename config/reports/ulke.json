@@ -1,0 +1,322 @@
+{
+ "type": "ulke",
+ "name": "Ülke Raporu",
+ "description": "Ülkenin coğrafi, siyasi ve ekonomik görünümü. Makro tablolar Dünya Bankası, dış ticaret UN Comtrade'den gelir.",
+ "params": [
+  {
+   "key": "ulke",
+   "label": "Ülke",
+   "default": "Özbekistan"
+  },
+  {
+   "key": "iso3",
+   "label": "ISO3 kodu",
+   "default": "UZB"
+  },
+  {
+   "key": "reporter",
+   "label": "Ülke Comtrade kodu",
+   "default": 860
+  },
+  {
+   "key": "yil",
+   "label": "Rapor yılı",
+   "default": 2026
+  }
+ ],
+ "cover": [
+  "{ULKE}",
+  "ÜLKE RAPORU",
+  "{yil}"
+ ],
+ "sections": [
+  {
+   "id": "cog",
+   "title": "COĞRAFİ KONUMU",
+   "level": 1,
+   "kind": "text"
+  },
+  {
+   "id": "nufus",
+   "title": "BÖLGESEL YAPISI VE NÜFUSU",
+   "level": 1,
+   "kind": "data",
+   "block": {
+    "kind": "wb_series",
+    "indicators": [
+     [
+      "SP.POP.TOTL",
+      "Nüfus (milyon)",
+      1e-06,
+      2
+     ],
+     [
+      "SP.URB.TOTL.IN.ZS",
+      "Kentsel nüfus (%)",
+      1,
+      1
+     ],
+     [
+      "SP.POP.GROW",
+      "Nüfus artışı (%)",
+      1,
+      1
+     ]
+    ],
+    "years": 5
+   }
+  },
+  {
+   "id": "siyasi",
+   "title": "SİYASİ VE İDARİ YAPISI",
+   "level": 1,
+   "kind": "text"
+  },
+  {
+   "id": "yasama",
+   "title": "Yasama",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "yurutme",
+   "title": "Yürütme",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "eko",
+   "title": "GENEL EKONOMİK DEĞERLENDİRME",
+   "level": 1,
+   "kind": "heading"
+  },
+  {
+   "id": "gsyh",
+   "title": "{ulke}’ın Gayri Safi Yurtiçi Hasılası",
+   "level": 2,
+   "kind": "data",
+   "block": {
+    "kind": "wb_series",
+    "indicators": [
+     [
+      "NY.GDP.MKTP.CD",
+      "GSYH (milyar $)",
+      1e-09,
+      1
+     ],
+     [
+      "NY.GDP.MKTP.KD.ZG",
+      "Reel büyüme (%)",
+      1,
+      1
+     ],
+     [
+      "NV.AGR.TOTL.ZS",
+      "Tarım payı (%)",
+      1,
+      1
+     ],
+     [
+      "NV.IND.TOTL.ZS",
+      "Sanayi payı (%)",
+      1,
+      1
+     ],
+     [
+      "NV.SRV.TOTL.ZS",
+      "Hizmetler payı (%)",
+      1,
+      1
+     ]
+    ],
+    "years": 6,
+    "chart": "line"
+   }
+  },
+  {
+   "id": "makro",
+   "title": "Makroekonomik Göstergeler",
+   "level": 2,
+   "kind": "data",
+   "block": {
+    "kind": "wb_series",
+    "indicators": [
+     [
+      "NY.GDP.MKTP.CD",
+      "GSYH (milyar $)",
+      1e-09,
+      1
+     ],
+     [
+      "NY.GDP.MKTP.KD.ZG",
+      "Reel GSYH büyümesi (%)",
+      1,
+      1
+     ],
+     [
+      "NY.GDP.PCAP.CD",
+      "Kişi başı GSYH ($)",
+      1,
+      0
+     ],
+     [
+      "SP.POP.TOTL",
+      "Nüfus (milyon)",
+      1e-06,
+      1
+     ],
+     [
+      "FP.CPI.TOTL.ZG",
+      "Enflasyon (TÜFE, %)",
+      1,
+      1
+     ],
+     [
+      "SL.UEM.TOTL.ZS",
+      "İşsizlik (%)",
+      1,
+      1
+     ],
+     [
+      "BN.CAB.XOKA.GD.ZS",
+      "Cari denge (GSYH %)",
+      1,
+      1
+     ],
+     [
+      "BX.KLT.DINV.CD.WD",
+      "Doğrudan yabancı yatırım girişi (milyar $)",
+      1e-09,
+      2
+     ],
+     [
+      "BX.TRF.PWKR.CD.DT",
+      "İşçi dövizleri (milyar $)",
+      1e-09,
+      1
+     ]
+    ],
+    "years": 3
+   }
+  },
+  {
+   "id": "reform",
+   "title": "Yapısal Reformlar",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "sanayi",
+   "title": "Sanayi Üretimi",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "tarim",
+   "title": "Tarımsal Üretim",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "yatirim",
+   "title": "Yatırımlar",
+   "level": 2,
+   "kind": "data",
+   "block": {
+    "kind": "wb_series",
+    "indicators": [
+     [
+      "NE.GDI.FTOT.CD",
+      "Sabit sermaye yatırımları (milyar $)",
+      1e-09,
+      1
+     ],
+     [
+      "NE.GDI.FTOT.ZS",
+      "Sabit sermaye yatırımları (GSYH %)",
+      1,
+      1
+     ],
+     [
+      "BX.KLT.DINV.CD.WD",
+      "DYY girişi (milyar $)",
+      1e-09,
+      2
+     ]
+    ],
+    "years": 6
+   }
+  },
+  {
+   "id": "insaat",
+   "title": "İnşaat",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "hizmet",
+   "title": "Hizmetler",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "dis",
+   "title": "DIŞ TİCARET",
+   "level": 1,
+   "kind": "data",
+   "block": {
+    "kind": "trade_total",
+    "years": 5,
+    "chart": "bars"
+   }
+  },
+  {
+   "id": "dis_ithalat",
+   "title": "En Fazla İthalat Yapılan Ülkeler",
+   "level": 2,
+   "kind": "data",
+   "block": {
+    "kind": "top_partners_total",
+    "flow": "M",
+    "n": 10,
+    "chart": "bar"
+   }
+  },
+  {
+   "id": "dis_ihracat",
+   "title": "En Fazla İhracat Yapılan Ülkeler",
+   "level": 2,
+   "kind": "data",
+   "block": {
+    "kind": "top_partners_total",
+    "flow": "X",
+    "n": 10,
+    "chart": "bar"
+   }
+  },
+  {
+   "id": "ulasim",
+   "title": "ULAŞIM ALTYAPISI",
+   "level": 1,
+   "kind": "text"
+  },
+  {
+   "id": "demir",
+   "title": "Demiryolu",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "kara",
+   "title": "Karayolu",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "hava",
+   "title": "Havayolu",
+   "level": 2,
+   "kind": "text"
+  }
+ ]
+}
