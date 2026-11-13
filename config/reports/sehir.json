@@ -1,0 +1,252 @@
+{
+ "type": "sehir",
+ "name": "Şehir / Bölge Raporu",
+ "description": "Viloyat bazında ekonomik profil. Bölge istatistikleri Özbekistan İstatistik Ajansı'ndan (SIAT), bölge haberleri robotun haber arşivinden otomatik gelir.",
+ "params": [
+  {
+   "key": "sehir",
+   "label": "Şehir / bölge",
+   "default": "Semerkant",
+   "options": [
+    "Taşkent Şehri",
+    "Taşkent Vilayeti",
+    "Semerkant",
+    "Buhara",
+    "Fergana",
+    "Andican",
+    "Namangan",
+    "Kaşkaderya",
+    "Surhanderya",
+    "Navoi",
+    "Cizzak",
+    "Sirderya",
+    "Harezm",
+    "Karakalpakistan"
+   ]
+  },
+  {
+   "key": "ulke",
+   "label": "Ülke",
+   "default": "Özbekistan"
+  },
+  {
+   "key": "odak",
+   "label": "Odak sektör (isteğe bağlı)",
+   "default": ""
+  },
+  {
+   "key": "yil",
+   "label": "Rapor yılı",
+   "default": 2026
+  }
+ ],
+ "cover": [
+  "{SEHIR}",
+  "BÖLGE RAPORU",
+  "{yil}"
+ ],
+ "sections": [
+  {
+   "id": "genel",
+   "title": "GENEL BİLGİLER",
+   "level": 1,
+   "kind": "data",
+   "block": {
+    "kind": "siat_region",
+    "indicators": [
+     [
+      246,
+      "Nüfus",
+      1
+     ],
+     [
+      256,
+      "Faal işletme ve kuruluş sayısı",
+      0
+     ],
+     [
+      261,
+      "Faal küçük işletme sayısı",
+      0
+     ],
+     [
+      500,
+      "Ortalama aylık nominal ücret",
+      0
+     ]
+    ],
+    "years": 5
+   },
+   "hint": "Coğrafi konum, yönetim merkezi, ilçeler, yüzölçümü, öne çıkan özellikler."
+  },
+  {
+   "id": "eko",
+   "title": "EKONOMİK GÖRÜNÜM",
+   "level": 1,
+   "kind": "data",
+   "block": {
+    "kind": "siat_region",
+    "indicators": [
+     [
+      552,
+      "Sanayi üretimi",
+      1
+     ],
+     [
+      1439,
+      "Tarımsal üretim",
+      1
+     ],
+     [
+      1326,
+      "Sabit sermaye yatırımları",
+      1
+     ],
+     [
+      2704,
+      "Perakende ticaret hacmi",
+      1
+     ]
+    ],
+    "years": 5,
+    "chart": "line"
+   }
+  },
+  {
+   "id": "dis",
+   "title": "DIŞ TİCARET",
+   "level": 1,
+   "kind": "data",
+   "block": {
+    "kind": "siat_region",
+    "indicators": [
+     [
+      2360,
+      "İhracat",
+      1
+     ],
+     [
+      2361,
+      "İthalat",
+      1
+     ]
+    ],
+    "years": 5,
+    "chart": "bars"
+   }
+  },
+  {
+   "id": "yer",
+   "title": "BÖLGENİN ÜLKE İÇİNDEKİ YERİ",
+   "level": 1,
+   "kind": "data",
+   "block": {
+    "kind": "siat_rank",
+    "indicators": [
+     [
+      246,
+      "Nüfus",
+      1
+     ],
+     [
+      552,
+      "Sanayi üretimi",
+      1
+     ],
+     [
+      1439,
+      "Tarımsal üretim",
+      1
+     ],
+     [
+      1326,
+      "Sabit sermaye yatırımları",
+      1
+     ],
+     [
+      2704,
+      "Perakende ticaret hacmi",
+      1
+     ],
+     [
+      2360,
+      "İhracat",
+      1
+     ],
+     [
+      2361,
+      "İthalat",
+      1
+     ]
+    ]
+   }
+  },
+  {
+   "id": "firsat",
+   "title": "YATIRIM ORTAMI VE FIRSATLAR",
+   "level": 1,
+   "kind": "heading"
+  },
+  {
+   "id": "seb",
+   "title": "Serbest Ekonomik Bölgeler ve Küçük Sanayi Bölgeleri",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "sektorler",
+   "title": "Öne Çıkan Sektörler ve Yatırım Fırsatları",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "odak",
+   "title": "Odak Sektör: {odak}",
+   "level": 2,
+   "kind": "data",
+   "block": {
+    "kind": "region_news",
+    "days": 120,
+    "n": 12,
+    "sector": true
+   },
+   "hint": "Odak sektör girilmişse bölge haberleri bu sektöre göre süzülür."
+  },
+  {
+   "id": "turk",
+   "title": "Bölgedeki Türk Firmaları ve Yatırımları",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "lojistik",
+   "title": "Ulaşım ve Lojistik",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "haber",
+   "title": "BÖLGEDEN SON HABERLER",
+   "level": 1,
+   "kind": "data",
+   "block": {
+    "kind": "region_news",
+    "days": 90,
+    "n": 15
+   }
+  },
+  {
+   "id": "adres",
+   "title": "YARARLI ADRESLER",
+   "level": 1,
+   "kind": "text",
+   "hint": "Hokimlik, bölge yatırım ajansı, SEB idareleri, Türk iş insanları dernekleri."
+  },
+  {
+   "id": "kaynak",
+   "title": "KAYNAKÇA",
+   "level": 1,
+   "kind": "text"
+  }
+ ]
+}

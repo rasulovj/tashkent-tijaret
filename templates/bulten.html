@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="{{ lang }}">
+<head>
+<meta charset="utf-8">
+<title>{{ L.doc_title }} – {{ issue_date }}</title>
+<style>
+  @page {
+    size: A4;
+    margin: 18mm 20mm 24mm 20mm;
+    @top-right { content: "{{ L.office_short }} · {{ issue_date }}"; font: italic 8pt Georgia, serif; color: #8B1A1A; }
+    @bottom-center {
+      content: "{{ L.note }}\A {{ L.page }} " counter(page) "/" counter(pages);
+      white-space: pre-wrap; font: bold italic 7.5pt Georgia, serif; color: #222;
+      border-top: 0.8pt solid #222; padding-top: 2mm; text-align: center;
+    }
+  }
+  @page :first { @top-right { content: none; } }
+  :root { --red: #8B1A1A; --orange: #C0392B; --box: #F8D9CC; }
+  body { font: 11.3pt/1.42 "Times New Roman", Times, serif; color: #111; margin: 0; }
+  header { display: flex; justify-content: space-between; align-items: flex-start; }
+  .office { flex: 1; color: var(--red); font: bold italic 15pt Georgia, "Times New Roman", serif; line-height: 1.25; }
+  .addr { flex: none; white-space: nowrap; text-align: right; font-size: 9pt; line-height: 1.35; margin-top: 26px; }
+  .date { color: var(--red); font: bold italic 9.5pt Georgia, serif; margin: 6px 0 10px; }
+  .headlines { border: 1px solid #c9a99b; margin-bottom: 14px; break-inside: avoid; }
+  .headlines h2 { background: var(--box); color: var(--red); margin: 0; padding: 3px; text-align: center;
+                  font: bold 12pt Calibri, "Segoe UI", Helvetica, sans-serif; }
+  .headlines ul { list-style: none; margin: 0; padding: 4px 6px; }
+  .headlines li { color: var(--orange); font: italic 10.3pt/1.32 Calibri, "Segoe UI", Helvetica, sans-serif; }
+  .headlines li::before { content: "- "; }
+  .indicators { border: 1px solid #c9a99b; margin-bottom: 16px; break-inside: avoid; }
+  .indicators h3 { background: var(--box); color: var(--red); margin: 0; padding: 3px;
+                   text-align: center; font: bold 10.5pt Calibri, Helvetica, sans-serif; }
+  .tiles { display: flex; gap: 0; border-bottom: 1px solid #eee; }
+  .tile { flex: 1; text-align: center; padding: 5px 2px; font-family: Helvetica, Arial, sans-serif; }
+  .tile + .tile { border-left: 1px solid #eee; }
+  .tile .c { font-size: 8pt; color: #666; }
+  .tile .v { font-size: 12pt; font-weight: bold; }
+  .tile .d { font-size: 7.5pt; }
+  .up { color: #1e7a3c; } .down { color: #b3261e; }
+  .charts { display: flex; padding: 4px 4px 0; }
+  .charts > div { flex: 1; }
+  .chart { width: 100%; height: auto; }
+  .src-note { font: 7pt Helvetica, sans-serif; color: #777; padding: 0 8px 4px; }
+  article { text-align: justify; margin-bottom: 12px; }
+  article p { margin: 0 0 4px; text-indent: 1.25em; }
+  article p:first-of-type { text-indent: 0; }
+  article .hd { font-weight: bold; }
+  article .src { font-style: italic; }
+  article .src a { color: inherit; text-decoration: none; }
+  article { overflow: hidden; }
+  figure.photo { float: right; width: 40%; margin: 2px 0 6px 5mm; break-inside: avoid; }
+  figure.photo img { width: 100%; max-height: 52mm; object-fit: cover; border-radius: 3px; border: 0; max-width: none; }
+  figure.photo figcaption { font: italic 7.5pt Helvetica, Arial, sans-serif; color: #777; text-align: right; margin-top: 1px; }
+  .videos { clear: both; display: flex; gap: 6mm; flex-wrap: wrap; margin: 2mm 0 1mm; }
+  .vid { display: flex; gap: 3mm; align-items: center; text-decoration: none; color: #222; border: 1px solid #e2d6d0; border-radius: 4px; padding: 2mm 3mm 2mm 2mm; background: #fbf7f5; }
+  .vid .qr svg { width: 17mm; height: 17mm; display: block; }
+  .vid b { color: #8B1A1A; font: bold 9.5pt Helvetica, Arial, sans-serif; }
+  .vid small { font: 7.5pt Helvetica, Arial, sans-serif; color: #666; }
+  figure { margin: 8px auto 4px; text-align: center; break-inside: avoid; }
+  figure img { max-width: 78%; max-height: 95mm; border: 1px solid #e2d6d0; }
+  figcaption { font: italic 9pt Georgia, serif; color: #555; margin-top: 3px; }
+  .warn { background: #fff3b0; outline: 1px dashed #d4a000; }
+</style>
+</head>
+<body>
+<header>
+  <div class="office">{{ L.office_1 }}<br>{{ L.office_2 }}</div>
+  <div class="addr">{{ L.address_html | safe }}</div>
+</header>
+<div class="date">{{ issue_date }}</div>
+
+<section class="headlines">
+  <h2>{{ L.headlines_title }}</h2>
+  <ul>{% for it in items %}<li>{{ it.headline }}</li>{% endfor %}</ul>
+</section>
+
+{% if rates %}
+<section class="indicators">
+  <h3>{{ L.indicators_title }}</h3>
+  <div class="tiles">
+    {% for r in rates %}
+    <div class="tile"><div class="c">1 {{ r.ccy }} / UZS</div>
+      <div class="v">{{ r.rate_fmt }}</div>
+      <div class="d {{ 'up' if r.diff > 0 else 'down' }}">{{ '▲' if r.diff > 0 else '▼' }} {{ r.diff_fmt }}</div></div>
+    {% endfor %}
+  </div>
+  <div class="charts">{% for c in charts %}<div>{{ c | safe }}</div>{% endfor %}</div>
+  <div class="src-note">{{ L.rates_source }} ({{ rates[0].date }})</div>
+</section>
+{% endif %}
+
+{% for it in items %}
+<article{% if review and it.warnings %} class="warn" title="{{ it.warnings | join('; ') }}"{% endif %}>
+  {% if it.photo and it.photo.show %}<figure class="photo"><img src="img/{{ it.photo.file }}" alt=""><figcaption>{{ L.photo }}: {{ it.photo.credit }}</figcaption></figure>{% endif %}
+  {% for p in it.paragraphs %}
+  <p>{% if loop.first %}<b>{{ it.n }} – </b><span class="hd">{{ it.headline }}</span><br>{% endif %}{{ p }}{% if loop.last %} <span class="src">({% for s in it.sources %}<a href="{{ s.url }}">{{ s.name }}</a>{{ ", " if not loop.last }}{% endfor %})</span>{% endif %}</p>
+  {% endfor %}
+  {% if it.videos %}<div class="videos">{% for v in it.videos %}<a class="vid" href="{{ v.url }}"><span class="qr">{{ qr(v.url) | safe }}</span><span><b>▶ {{ v.title or L.video }}</b><br><small>{{ v.url }}</small></span></a>{% endfor %}</div>{% endif %}
+  {% if it.image %}<figure><img src="img/{{ it.image }}" alt="">{% if it.image_caption %}<figcaption>{{ it.image_caption }}</figcaption>{% endif %}</figure>{% endif %}
+</article>
+{% endfor %}
+</body>
+</html>

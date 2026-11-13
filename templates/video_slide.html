@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<style>
+  @page { size: 1920px 1080px; margin: 0; }
+  html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; background: #FBF7F4; color: #1d1d1f; position: relative; }
+  .band { position: absolute; left: 0; top: 0; right: 0; height: 92px; background: #8B1A1A; color: #fff;
+          display: flex; align-items: center; padding: 0 70px; font: bold italic 30px Georgia, serif; letter-spacing: .02em; }
+  .band .r { margin-left: auto; font: 600 26px "Helvetica Neue", Arial, sans-serif; font-style: normal; opacity: .9; }
+  .foot { position: absolute; left: 70px; right: 70px; bottom: 40px; display: flex; align-items: center; color: #6b6460; font-size: 24px; }
+  .foot .bar { width: 120px; height: 8px; background: #C0392B; margin-right: 24px; border-radius: 4px; }
+  .foot .r { margin-left: auto; }
+  .chip { display: inline-block; background: #F3E4DE; color: #8B1A1A; font-weight: 800; font-size: 26px; letter-spacing: .08em;
+          text-transform: uppercase; padding: 8px 20px; border-radius: 40px; margin-bottom: 30px; }
+
+  /* kapak */
+  .cover { position: absolute; inset: 92px 0 0 0; display: flex; flex-direction: column; justify-content: center; padding: 0 860px 0 120px;
+           background: linear-gradient(120deg, #FBF7F4 0%, #FBF7F4 55%, #F3E4DE 100%); }
+  .cover h1 { font: bold 96px/1.05 Georgia, serif; margin: 0 0 30px; color: #8B1A1A; }
+  .cover h2 { font: 400 40px/1.3 Georgia, serif; margin: 0 0 50px; }
+  .cover .date { font-size: 40px; font-weight: 700; color: #C0392B; }
+  .cover ol { position: absolute; right: 100px; top: 110px; width: 680px; margin: 0; padding: 0; list-style: none; counter-reset: n; }
+  .cover li { counter-increment: n; font-size: 24px; line-height: 1.3; margin-bottom: 16px; display: flex; gap: 14px; color: #3a3330; }
+  .cover li::before { content: counter(n); flex: none; width: 38px; height: 38px; border-radius: 50%; background: #8B1A1A; color: #fff;
+                      display: grid; place-items: center; font-weight: 700; font-size: 20px; }
+
+  /* haber */
+  .news { position: absolute; inset: 92px 0 0 0; display: grid; grid-template-columns: 1fr 820px; }
+  .news.nophoto { grid-template-columns: 1fr; }
+  .news .txt { padding: 80px 70px 140px 90px; display: flex; flex-direction: column; justify-content: center; border-left: 14px solid #8B1A1A; }
+  .news h1 { font: bold 64px/1.15 Georgia, serif; margin: 0 0 36px; }
+  .news.nophoto h1 { font-size: 76px; }
+  .news p { font-size: 32px; line-height: 1.5; color: #3a3330; margin: 0; }
+  .news .num { position: absolute; left: 90px; top: 40px; font: 800 28px "Helvetica Neue", Arial; color: #C0392B; }
+  .news .ph { background-size: cover; background-position: center; position: relative; }
+  .news .ph span { position: absolute; right: 16px; bottom: 14px; background: rgba(0,0,0,.55); color: #fff; font-size: 18px; padding: 4px 10px; border-radius: 4px; }
+  .news .qr { display: flex; align-items: center; gap: 20px; margin-top: 36px; font-size: 24px; color: #8B1A1A; font-weight: 700; }
+  .news .qr svg { width: 120px; height: 120px; background: #fff; padding: 6px; border-radius: 8px; }
+
+  /* kurlar */
+  .rates { position: absolute; inset: 92px 0 0 0; padding: 56px 90px 0; }
+  .rates h1 { font: bold 58px Georgia, serif; margin: 0 0 10px; }
+  .rates .sub { font-size: 28px; color: #6b6460; margin-bottom: 34px; }
+  .tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 36px; }
+  .tile { background: #F3E4DE; border-radius: 24px; padding: 28px 40px; }
+  .tile .c { font-size: 32px; color: #6b6460; font-weight: 600; }
+  .tile .v { font-size: 64px; font-weight: 800; margin: 14px 0; }
+  .tile .d { font-size: 28px; font-weight: 700; }
+  .up { color: #1e7a3c; } .down { color: #b3261e; }
+  .rates .chart { margin-top: 28px; }
+  .rates .chart svg { width: 100%; height: 330px; }
+
+  /* kapanış */
+  .end { position: absolute; inset: 92px 0 0 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; background: #8B1A1A; color: #fff; }
+  .end h1 { font: bold 84px Georgia, serif; margin: 0 0 30px; }
+  .end p { font-size: 36px; opacity: .9; margin: 6px 0; }
+</style>
+</head>
+<body>
+<div class="band">{{ L.office_short }}<span class="r">{{ L.doc_title }} · {{ issue }}</span></div>
+
+{% if kind == "cover" %}
+<div class="cover">
+  <h1>{{ L.doc_title }}</h1>
+  <h2>{{ L.headlines_title }}</h2>
+  <div class="date">{{ issue }}</div>
+  <ol>{% for it in items[:8] %}<li>{{ it.headline }}</li>{% endfor %}</ol>
+</div>
+
+{% elif kind == "news" %}
+<div class="news {{ '' if photo else 'nophoto' }}">
+  <div class="txt">
+    <div class="num">{{ n }} / {{ total }}</div>
+    <div><span class="chip">{{ it.category }}</span></div>
+    <h1>{{ it.headline }}</h1>
+    <p>{{ summary }}</p>
+    {% if it.videos %}<div class="qr">{{ qr(it.videos[0].url) | safe }}<span>▶ {{ L.video }}<br><small style="font-weight:400;color:#6b6460">{{ it.videos[0].title }}</small></span></div>{% endif %}
+  </div>
+  {% if photo %}<div class="ph" style="background-image:url('{{ photo }}')"><span>{{ L.photo }}: {{ it.photo.credit }}</span></div>{% endif %}
+</div>
+
+{% elif kind == "rates" %}
+<div class="rates">
+  <h1>{{ L.indicators_title }}</h1>
+  <div class="sub">{{ L.rates_source }}</div>
+  <div class="tiles">{% for r in rates %}
+    <div class="tile"><div class="c">1 {{ r.ccy }} / UZS</div><div class="v">{{ r.rate_fmt }}</div>
+      <div class="d {{ 'up' if r.diff > 0 else 'down' }}">{{ '▲' if r.diff > 0 else '▼' }} {{ r.diff_fmt }}</div></div>{% endfor %}</div>
+  <div class="chart">{{ chart | safe }}</div>
+</div>
+
+{% else %}
+<div class="end">
+  <h1>{{ L.office_1 }}<br>{{ L.office_2 }}</h1>
+  <p>{{ L.end_note }}</p>
+</div>
+{% endif %}
+
+<div class="foot"><span class="bar"></span>{{ L.office_short }}<span class="r">{{ foot }}</span></div>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>{{ rep.title }}</title>
+<style>
+  @page {
+    size: A4; margin: 20mm 20mm 20mm 22mm;
+    @top-left { content: "TAŞKENT TİCARET MÜŞAVİRLİĞİ"; font: bold italic 8.5pt Georgia, serif; color: #8B1A1A; }
+    @bottom-center { content: counter(page); font: 9pt Georgia, serif; color: #444; }
+  }
+  @page :first { margin: 0; @top-left { content: none; } @bottom-center { content: none; } }
+  :root { --red: #8B1A1A; --soft: #f6e7e2; --line: #d9cfca; }
+  body { font: 11.5pt/1.5 "Times New Roman", Times, serif; color: #111; margin: 0; }
+
+  .cover { height: 297mm; box-sizing: border-box; padding: 36mm 24mm 24mm; display: flex; flex-direction: column;
+           background: linear-gradient(180deg, #fff 0%, #fff 62%, #f8efeb 100%); break-after: page; position: relative; }
+  .cover .office { font: bold italic 15pt Georgia, serif; color: var(--red); letter-spacing: .02em; }
+  .cover .bar { width: 60mm; height: 2.5mm; background: var(--red); margin: 10mm 0 18mm; }
+  .cover h1 { font: bold 30pt/1.15 Georgia, serif; color: #1d1d1f; margin: 0; letter-spacing: .01em; }
+  .cover h1 span { display: block; }
+  .cover h1 span:first-child { color: var(--red); font-size: 36pt; margin-bottom: 4mm; }
+  .cover .logo { position: absolute; top: 28mm; right: 24mm; width: 32mm; }
+  .cover .meta { margin-top: auto; font: 11pt Georgia, serif; color: #333; border-top: 1px solid var(--line); padding-top: 6mm; }
+  .cover .meta b { color: var(--red); }
+
+  .toc { break-after: page; }
+  .toc h2 { font: bold 20pt Georgia, serif; color: var(--red); margin: 0 0 8mm; }
+  .toc .row { display: flex; align-items: baseline; gap: 2mm; font-size: 11pt; margin: 1.6mm 0; }
+  .toc .row.l1 { font-weight: bold; margin-top: 3.5mm; }
+  .toc .row.l2 { padding-left: 6mm; } .toc .row.l3 { padding-left: 12mm; font-size: 10.5pt; }
+  .toc .dots { flex: 1; border-bottom: 1px dotted #999; transform: translateY(-1mm); }
+
+  h2.s1, h3.s2, h4.s3 { font-family: Georgia, serif; color: var(--red); break-after: avoid; }
+  h2.s1 { font-size: 15pt; margin: 9mm 0 3mm; padding-bottom: 1.5mm; border-bottom: 1.5px solid var(--red); }
+  h3.s2 { font-size: 12.5pt; margin: 6mm 0 2mm; }
+  h4.s3 { font-size: 11.5pt; margin: 4mm 0 1.5mm; color: #5a1a1a; }
+  .mk { font-size: 1px; color: #fff; }
+  p { margin: 0 0 2.5mm; text-align: justify; }
+  ul { margin: 0 0 3mm; padding-left: 6mm; } li { margin-bottom: 1mm; text-align: justify; }
+  .empty { color: #a35f00; background: #fff6e0; border: 1px dashed #e5c27a; padding: 2mm 3mm; font: italic 10pt Georgia, serif; }
+
+  table { width: 100%; border-collapse: collapse; margin: 2mm 0 1.5mm; font: 9.5pt/1.3 Helvetica, Arial, sans-serif; break-inside: auto; }
+  thead { display: table-header-group; }
+  th { background: var(--red); color: #fff; font-weight: 600; padding: 1.8mm 2mm; text-align: center; border: 1px solid #7a1616; }
+  td { padding: 1.4mm 2mm; border: 1px solid var(--line); text-align: right; }
+  td:first-child, td.txt { text-align: left; }
+  tr:nth-child(even) td { background: #fbf7f5; }
+  tr.total td { font-weight: bold; background: var(--soft); }
+  .note { font: italic 8.5pt Helvetica, Arial, sans-serif; color: #666; margin-bottom: 4mm; }
+  .chart { width: 100%; height: auto; margin: 2mm 0 1mm; break-inside: avoid; }
+</style>
+</head>
+<body>
+<section class="cover">
+  {% if logo %}<img class="logo" src="{{ logo }}" alt="">{% endif %}
+  <div class="office">TAŞKENT TİCARET MÜŞAVİRLİĞİ</div>
+  <div class="bar"></div>
+  <h1>{% for w in rep.cover_lines or [] %}<span>{{ w }}</span>{% endfor %}</h1>
+  <div class="meta">Tarih: <b>{{ today }}</b><br>Raporu Hazırlayan: <b>Taşkent Ticaret Müşavirliği</b></div>
+</section>
+
+<section class="toc">
+  <h2>İçindekiler</h2>
+  {% for s in sections %}
+  <div class="row l{{ s.level }}"><span>{% if s.id[0].isdigit() %}{{ s.id }}{{ "." if s.level == 1 else "" }} {% endif %}{{ s.title }}</span><span class="dots"></span><span>{{ s.page }}</span></div>
+  {% endfor %}
+</section>
+
+{% for s in sections %}
+{% set tag = {1: "h2", 2: "h3", 3: "h4"}[s.level] %}
+<{{ tag }} class="s{{ s.level }}" id="{{ s.id }}">{% if s.id[0].isdigit() %}{{ s.id }}{{ "." if s.level == 1 else "" }} {% endif %}{{ s.title }}<span class="mk">§{{ s.id }}§</span></{{ tag }}>
+  {% for para in s.paras %}
+    {% if para.list %}<ul>{% for li in para.list %}<li>{{ li }}</li>{% endfor %}</ul>{% else %}<p>{{ para.p }}</p>{% endif %}
+  {% endfor %}
+  {% if s.data and s.data.rows %}
+  <table>
+    <thead><tr>{% for c in s.data.columns %}<th>{{ c }}</th>{% endfor %}</tr></thead>
+    <tbody>{% for r in s.data.rows %}
+      <tr class="{{ 'total' if (r[1] == 'TOPLAM' or (r[2] is string and r[2] == 'TOPLAM (fasıl)') or r[0] == 'Dış Ticaret Hacmi') else '' }}">
+        {% for c in r %}{% if c is mapping %}<td class="txt"><a href="{{ c.url }}" style="color:#111;text-decoration:none">{{ c.text }}</a></td>{% else %}<td class="{{ 'txt' if loop.index0 < 3 and not (c is number) and not c[:1].isdigit() and c[:1] != '-' else '' }}">{{ c }}</td>{% endif %}{% endfor %}</tr>{% endfor %}
+    </tbody>
+  </table>
+  <div class="note">{{ s.data.note }}</div>
+  {{ s.chart_svg | safe }}
+  {% elif s.kind != "heading" and not s.paras %}
+  <div class="empty">Bu bölüm henüz doldurulmadı.</div>
+  {% endif %}
+{% endfor %}
+</body>
+</html>

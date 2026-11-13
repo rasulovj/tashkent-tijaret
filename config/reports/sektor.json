@@ -1,0 +1,485 @@
+{
+ "type": "sektor",
+ "name": "Sektör Raporu (Mal Ticareti)",
+ "description": "Ticaret Bakanlığı sektör raporları formatı. Dış ticaret tabloları UN Comtrade'den otomatik gelir.",
+ "params": [
+  {
+   "key": "ulke",
+   "label": "Ülke",
+   "default": "Özbekistan"
+  },
+  {
+   "key": "reporter",
+   "label": "Ülke Comtrade kodu",
+   "default": 860
+  },
+  {
+   "key": "sektor",
+   "label": "Sektör adı",
+   "default": "Mobilya"
+  },
+  {
+   "key": "hs",
+   "label": "GTİP kodları (virgülle)",
+   "default": "94"
+  },
+  {
+   "key": "yil",
+   "label": "Veri yılı",
+   "default": 2025
+  }
+ ],
+ "cover": [
+  "{ULKE}",
+  "{SEKTOR} SEKTÖRÜ",
+  "PAZAR ARAŞTIRMASI RAPORU"
+ ],
+ "sections": [
+  {
+   "id": "1",
+   "title": "Ülke Pazarında {sektor} Sektörü",
+   "level": 1,
+   "kind": "heading"
+  },
+  {
+   "id": "1.1",
+   "title": "İlgili Sektörde Üretim",
+   "level": 2,
+   "kind": "text",
+   "hint": "Üretim hacmi, büyüme, üretici sayısı; Özbekistan İstatistik Ajansı verileri."
+  },
+  {
+   "id": "1.2",
+   "title": "Ortalama Üretici Fiyatları",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "1.3",
+   "title": "İlgili Sektörde Üretici Yerli Firmalara ve Üretici Birlikleri/Derneklerine İlişkin Bilgiler",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "1.4",
+   "title": "{sektor} Sektöründe Perakende ve Toptan Satışlara İlişkin Bilgi",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "2",
+   "title": "Ülkenin Sektörde Dış Ticareti",
+   "level": 1,
+   "kind": "heading"
+  },
+  {
+   "id": "2.1",
+   "title": "{sektor} Sektöründe Ülkenin En Fazla İthalat Gerçekleştirdiği İlk 10 Ülke",
+   "level": 2,
+   "kind": "data",
+   "block": {
+    "kind": "top_partners",
+    "flow": "M",
+    "n": 10,
+    "chart": "bar"
+   }
+  },
+  {
+   "id": "2.2",
+   "title": "{sektor} Sektöründe Ülkenin En Fazla İhracat Gerçekleştirdiği İlk 10 Ülke",
+   "level": 2,
+   "kind": "data",
+   "block": {
+    "kind": "top_partners",
+    "flow": "X",
+    "n": 10,
+    "chart": "bar"
+   }
+  },
+  {
+   "id": "2.3",
+   "title": "{sektor} Sektöründe Ülkenin Altılı Tarife Bazında En Fazla İthalat Yaptığı Ürünler (10 ürün)",
+   "level": 2,
+   "kind": "data",
+   "block": {
+    "kind": "top_products",
+    "flow": "M",
+    "n": 10
+   }
+  },
+  {
+   "id": "2.4",
+   "title": "{sektor} Sektöründe Ülkenin Altılı Tarife Bazında En Fazla İhracat Yaptığı Ürünler (10 ürün)",
+   "level": 2,
+   "kind": "data",
+   "block": {
+    "kind": "top_products",
+    "flow": "X",
+    "n": 10
+   }
+  },
+  {
+   "id": "3",
+   "title": "Sektörde Ülkemizden İhracat (Değer ve Miktar)",
+   "level": 1,
+   "kind": "heading"
+  },
+  {
+   "id": "3.1",
+   "title": "Sektörde Ülkemizin Ülkeye İhracatı ($)",
+   "level": 2,
+   "kind": "data",
+   "block": {
+    "kind": "tr_exports",
+    "measure": "value",
+    "years": 5,
+    "n": 10,
+    "chart": "line"
+   }
+  },
+  {
+   "id": "3.2",
+   "title": "Sektörde Ülkemizin Ülkeye İhracatı (Miktar)",
+   "level": 2,
+   "kind": "data",
+   "block": {
+    "kind": "tr_exports",
+    "measure": "qty",
+    "years": 5,
+    "n": 10
+   }
+  },
+  {
+   "id": "4",
+   "title": "Sektörde İhracat Yoluyla Pazara Giriş",
+   "level": 1,
+   "kind": "heading"
+  },
+  {
+   "id": "4.1",
+   "title": "Sektör İçin Hedef Bölgeler/Şehirler/Eyaletler",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "4.2",
+   "title": "Sektörde Önde Gelen Firmalar ve Pazarın Yapısı",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "4.2.1",
+   "title": "İlgili Oda/Birlik/Dernek/STK'lar ve İletişim Bilgileri",
+   "level": 3,
+   "kind": "text"
+  },
+  {
+   "id": "4.2.2",
+   "title": "Varsa İthalatçı Firma Bilgisi Alınabilecek Açık Kaynaklar",
+   "level": 3,
+   "kind": "text"
+  },
+  {
+   "id": "4.3",
+   "title": "Sektörün İthalatında Zorunlu Belgeler",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "4.4",
+   "title": "Sektörde Sevk Öncesi İnceleme Zorunluluğu ve Yetkili Gözetim Şirketleri",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "4.5",
+   "title": "Sektördeki Önemli Fuarlar (Milli Katılım) ve Tarihleri",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "4.6",
+   "title": "Sektör Firmalarına Hitap Eden Planlanan Ticaret Heyetleri",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "4.7",
+   "title": "Varsa Sektörde İhale Yayımlayan Kamu Kurumları ile İlgili Bilgiler",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "4.8",
+   "title": "Ülkenin, Ülkemiz ve Diğer Ülkelerle STA/Tercihli Ticaret Anlaşmaları Hakkında Bilgi",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "4.9",
+   "title": "Varsa Tercihli Tarifeden Yararlanmak İçin Gereken Belgeler",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "4.10",
+   "title": "Sektörde Standartlar",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "4.11",
+   "title": "Sektörde Etiketleme",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "4.12",
+   "title": "Sektörde Ambalajlama",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "4.13",
+   "title": "Lojistik (Nakliye Süresi, Taşıma Modları, Güzergahlar)",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "4.14",
+   "title": "Dağıtım Kanalları",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "4.15",
+   "title": "E-Ticaret (Sınır Ötesi E-Ticaret/E-İhracat)",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "4.15.1",
+   "title": "Ülkedeki Pazaryerleri",
+   "level": 3,
+   "kind": "text"
+  },
+  {
+   "id": "4.15.2",
+   "title": "Özel Günler, Bayramlar",
+   "level": 3,
+   "kind": "text"
+  },
+  {
+   "id": "4.15.3",
+   "title": "En Çok Kullanılan Sosyal Medya Platformları",
+   "level": 3,
+   "kind": "text"
+  },
+  {
+   "id": "4.15.4",
+   "title": "E-Ticaretteki Gümrük Vergileri ve Muafiyetler",
+   "level": 3,
+   "kind": "text"
+  },
+  {
+   "id": "4.15.5",
+   "title": "E-Ticarete Yönelik Düzenlemeler",
+   "level": 3,
+   "kind": "text"
+  },
+  {
+   "id": "4.15.6",
+   "title": "E-Ticarete Yönelik Lojistik Hizmetleri",
+   "level": 3,
+   "kind": "text"
+  },
+  {
+   "id": "4.16",
+   "title": "Tanıtım ve Pazarlama",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "4.17",
+   "title": "Sektörde Tüketici/Alıcı Tercihleri ve Son Trendler",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "4.18",
+   "title": "Sektörde Vergiler (Gümrük Vergisi, KDV, ÖTV, İlave Gümrük Vergisi, Anti-Damping)",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "4.19",
+   "title": "Varsa Sektöre Yönelik ve Genel Tarife Dışı Engeller",
+   "level": 2,
+   "kind": "text"
+  },
+  {
+   "id": "5",
+   "title": "Sektörde İhracatçılarımızı Bekleyen Fırsatlar",
+   "level": 1,
+   "kind": "text"
+  },
+  {
+   "id": "6",
+   "title": "Sektörde İhracatçılarımızı Bekleyen Tehditler",
+   "level": 1,
+   "kind": "text"
+  },
+  {
+   "id": "7",
+   "title": "{sektor} Sektöründe İhracatın Artırılması için Firmalara Öneriler",
+   "level": 1,
+   "kind": "text"
+  },
+  {
+   "id": "8",
+   "title": "Belirtilmesinde Fayda Görülen Diğer Hususlar",
+   "level": 1,
+   "kind": "text"
+  },
+  {
+   "id": "9",
+   "title": "Genel Değerlendirme",
+   "level": 1,
+   "kind": "text"
+  },
+  {
+   "id": "10",
+   "title": "Yararlı Adresler",
+   "level": 1,
+   "kind": "text"
+  },
+  {
+   "id": "11",
+   "title": "Kaynakça",
+   "level": 1,
+   "kind": "text"
+  }
+ ],
+ "presets": [
+  {
+   "sektor": "Mobilya",
+   "hs": "94"
+  },
+  {
+   "sektor": "Tekstil (İplik ve Kumaş)",
+   "hs": "50,51,52,53,54,55,56,58,59,60"
+  },
+  {
+   "sektor": "Hazır Giyim",
+   "hs": "61,62,63"
+  },
+  {
+   "sektor": "Halı ve Yer Kaplamaları",
+   "hs": "57"
+  },
+  {
+   "sektor": "Deri ve Ayakkabı",
+   "hs": "41,42,43,64"
+  },
+  {
+   "sektor": "İşlenmiş Gıda",
+   "hs": "16,17,18,19,20,21"
+  },
+  {
+   "sektor": "İçecekler",
+   "hs": "22"
+  },
+  {
+   "sektor": "Taze Meyve ve Sebze",
+   "hs": "07,08"
+  },
+  {
+   "sektor": "Hububat, Bakliyat ve Yağlı Tohumlar",
+   "hs": "10,11,12"
+  },
+  {
+   "sektor": "Su Ürünleri ve Hayvancılık",
+   "hs": "01,02,03,04"
+  },
+  {
+   "sektor": "Kimyasallar",
+   "hs": "28,29,38"
+  },
+  {
+   "sektor": "İlaç",
+   "hs": "30"
+  },
+  {
+   "sektor": "Kozmetik ve Temizlik Ürünleri",
+   "hs": "33,34"
+  },
+  {
+   "sektor": "Plastik ve Mamulleri",
+   "hs": "39"
+  },
+  {
+   "sektor": "Kauçuk ve Lastik",
+   "hs": "40"
+  },
+  {
+   "sektor": "Kağıt ve Ambalaj",
+   "hs": "48"
+  },
+  {
+   "sektor": "İnşaat Malzemeleri",
+   "hs": "25,68,6907,6910,7308"
+  },
+  {
+   "sektor": "Seramik",
+   "hs": "69"
+  },
+  {
+   "sektor": "Cam ve Cam Eşya",
+   "hs": "70"
+  },
+  {
+   "sektor": "Demir-Çelik",
+   "hs": "72,73"
+  },
+  {
+   "sektor": "Alüminyum",
+   "hs": "76"
+  },
+  {
+   "sektor": "Makine",
+   "hs": "84"
+  },
+  {
+   "sektor": "Elektrikli Makine ve Ekipman",
+   "hs": "85"
+  },
+  {
+   "sektor": "Enerji Ekipmanları (Trafo, Kablo, Panel)",
+   "hs": "8501,8502,8504,8541,8544"
+  },
+  {
+   "sektor": "Beyaz Eşya",
+   "hs": "8418,8422,8450,8451,8516"
+  },
+  {
+   "sektor": "Tarım Makineleri",
+   "hs": "8432,8433,8434,8436,8701"
+  },
+  {
+   "sektor": "Otomotiv ve Yan Sanayi",
+   "hs": "87"
+  },
+  {
+   "sektor": "Tıbbi Cihaz",
+   "hs": "9018,9019,9021,9022"
+  },
+  {
+   "sektor": "Mücevher",
+   "hs": "71"
+  },
+  {
+   "sektor": "Oyuncak ve Spor Malzemeleri",
+   "hs": "95"
+  }
+ ]
+}

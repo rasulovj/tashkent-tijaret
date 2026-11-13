@@ -1,0 +1,9 @@
+feedparser
+jinja2
+anthropic
+requests
+trafilatura
+pymupdf
+imageio-ffmpeg
+qrcode
+python-pptx
