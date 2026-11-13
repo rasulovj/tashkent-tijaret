@@ -1,0 +1,279 @@
+{
+ "items": [
+  {
+   "headline": "XVJ O‘zbekistonning 2026 yilgi o‘sish prognozini 7,8 foizga oshirdi.",
+   "paragraphs": [
+    "Xalqaro valyuta jamg‘armasi (XVJ) 12 oktyabrda e’lon qilingan “Jahon iqtisodiyoti istiqbollari” oktyabr hisobotida O‘zbekiston uchun 2026 yilgi o‘sish prognozini 6,8 foizdan 7,8 foizga, 2027 yilgi prognozni esa 6 foizdan 6,5 foizga oshirdi. Shunga ko‘ra, mamlakat iqtisodiyoti bu yil 7,7 foiz o‘sish qayd etilgan 2025 yilga nisbatan tezroq o‘sishi kutilmoqda.",
+    "XVJ yillik o‘rtacha inflyatsiya 2025 yildagi 8,8 foizdan 2026 yilda 6,9 foizga, 2027 yilda esa 5,7 foizga pasayishini prognoz qilmoqda. Ishsizlik darajasi ham 2025 yildagi taxminiy 4,8 foizdan 2026 yilda 4,3 foizga, 2027 yilda 3,8 foizga tushishi kutilmoqda. Shu bilan birga, Jamg‘arma joriy hisob taqchilligi prognozini yuqoriga qayta ko‘rib chiqib, taqchillik 2026 yilda YaIMning 5,1 foiziga, 2027 yilda 4,6 foiziga yetishini bashorat qildi (2025 yil bahosi: 3,9 foiz).",
+    "Milliy statistika qo‘mitasi ma’lumotlariga ko‘ra, O‘zbekiston iqtisodiyoti 2026 yilning birinchi yarmida o‘tgan yilning shu davriga nisbatan 8,5 foiz o‘sdi. Jahon banki ham O‘zbekiston uchun 2026 yilgi o‘sish prognozini 6,4 foizdan 7,9 foizga, 2027 yilgi prognozni 6,7 foizdan 7,5 foizga oshirgan edi."
+   ],
+   "category": "makro",
+   "candidate_ids": [
+    "c35"
+   ],
+   "sources": [
+    {
+     "name": "Gazeta.uz",
+     "url": "https://www.gazeta.uz/en/2026/10/16/uzbekistan-gdp-imf/"
+    }
+   ],
+   "image": "1-news-121014.png",
+   "image_caption": "",
+   "photo": {
+    "file": "src-c35.webp",
+    "credit": "Gazeta.uz",
+    "url": "https://www.gazeta.uz/media/img/2025/09/sAFxmn17573136305023_208734_og.webp?r=1792152742",
+    "show": true
+   }
+  },
+  {
+   "headline": "O‘zbekiston va AQSh 12 milliard dollarlik 54 ta kelishuv imzoladi.",
+   "paragraphs": [
+    "AQSh delegatsiyasining O‘zbekistonga tashrifi doirasida 19 oktyabr kuni Samarqandda o‘tkazilgan biznes tadbirlarida savdo, investitsiya va texnologik hamkorlikka oid 54 ta kelishuv imzolandi. Investitsiyalar, sanoat va savdo vazirligi ma’lumotiga ko‘ra, kelishuvlar amalga oshirilganda ularning umumiy qiymati 12 milliard AQSh dollariga yetadi. Kelishuvlar sanoat, transport va energetika infratuzilmasi, muhim minerallar, moliya, raqamli texnologiyalar, qishloq xo‘jaligi, sog‘liqni saqlash va ta’lim sohalarini qamrab oladi.",
+    "Transport sohasida GE Aerospace “O‘zbekiston havo yo‘llari” samolyotlari uchun dvigatellar yetkazib berishi, Wabtec esa temir yo‘l uskunalari va butlovchi qismlarini mahalliylashtirishga ko‘maklashishi ko‘zda tutilgan. Franklin Templeton, Oppenheimer & Co., Citigroup va BlackRock bilan tuzilgan kelishuvlar o‘zbek kompaniyalarining xalqaro kapital bozorlariga chiqishini osonlashtirish va infratuzilma loyihalarini moliyalashtirishga qaratilgan. Tog‘-kon sohasida ReElement Technologies, Traxys va Trafigura bilan konlarni qidirish va o‘zlashtirish bo‘yicha kelishuvga erishildi.",
+    "Vazirlik ma’lumotiga ko‘ra, biznes dasturida 400 dan ortiq kompaniya vakillari, jumladan AQShdan 100 dan ortiq, boshqa Markaziy Osiyo davlatlaridan 100 ta va O‘zbekistondan 200 ta kompaniya ishtirok etdi."
+   ],
+   "category": "ticaret",
+   "candidate_ids": [
+    "c05",
+    "c01",
+    "c03",
+    "c04"
+   ],
+   "sources": [
+    {
+     "name": "Gazeta.uz",
+     "url": "https://www.gazeta.uz/en/2026/10/20/c5-1/"
+    },
+    {
+     "name": "Daryo.uz",
+     "url": "https://daryo.uz/en/2026/10/20/uzbekistan-and-u-s-sign-54-agreements-totaling-12bn-upon-implementation/"
+    },
+    {
+     "name": "Kursiv.uz",
+     "url": "https://uz.kursiv.media/2026-10-20/uzbekistan-i-ssha-dogovorilis-o-sotrudnichestve-na-12-mlrd/?utm_source=rss&utm_medium=rss&utm_campaign=uzbekistan-i-ssha-dogovorilis-o-sotrudnichestve-na-12-mlrd"
+    }
+   ],
+   "image": "2-news-121034.png",
+   "image_caption": "",
+   "photo": {
+    "file": "src-c05.webp",
+    "credit": "Gazeta.uz",
+    "url": "https://www.gazeta.uz/media/img/2026/10/7h4kq9qp2drg3gknNio17924121442600_208934_og.webp?r=1792497706",
+    "show": true
+   }
+  },
+  {
+   "headline": "Turkiyaning Aksa Elektrik kompaniyasi O‘zbekistonning yana uchta viloyatida elektr tarmoqlarini boshqarishga tayyorlanmoqda.",
+   "paragraphs": [
+    "Kazancı Holding tarkibidagi Aksa Elektrik Toshkent, Sirdaryo va Jizzax viloyatlaridagi elektr taqsimlash tarmoqlarini boshqarish bo‘yicha kelishuvlarni bir hafta ichida imzolashni rejalashtirayotgani ma’lum qilindi. Kazancı Holding boshqaruv raisi va bosh ijrochi direktori Jemil Kazanji 16 oktyabr kuni Prezident Shavkat Mirziyoyev bilan uchrashuvdan so‘ng “O‘zbekiston 24” telekanaliga bergan intervyusida bu haqda ma’lum qildi. Taqsimlash tarmoqlariga kiritiladigan investitsiyalar orqali yo‘qotishlarni kamaytirish, xarajatlarni pasaytirish va energiya samaradorligini oshirish ko‘zlanmoqda.",
+    "Kompaniya avvalroq Samarqand viloyatidagi taqsimlash tarmog‘ini boshqarish bo‘yicha xalqaro tenderda g‘olib chiqqan edi. 30 yillik kelishuv doirasida viloyat infratuzilmasiga 1 milliard AQSh dollari investitsiya kiritish rejalashtirilgan; dastlabki 12 yilda 357 million AQSh dollari to‘g‘ridan-to‘g‘ri investitsiya kiritish majburiyati belgilangan. Viloyat hokimligi ma’lumotiga ko‘ra, turk tomoni tarmoqning muhim qismlarida tekshiruvni yakunlab, 440 ta loyiha ishlab chiqdi; viloyatda 1.000 ta transformatorni yangilash rejalashtirilgan.",
+    "Guruhning qardosh kompaniyasi Aksa Enerji esa Toshkent viloyatida ikkita, Buxoro viloyatida bitta, jami 740 MVt quvvatga ega elektr stansiyalarini qurgan; 2024 yil dekabrida Qashqadaryo viloyatining Nishon tumanida yana bir 400 MVt quvvatli stansiya ishga tushirildi. Aksa Enerjining O‘zbekistondagi umumiy investitsiyalari bugungi kunga qadar 750 million AQSh dollariga yetdi."
+   ],
+   "category": "türkiye",
+   "candidate_ids": [
+    "c02"
+   ],
+   "sources": [
+    {
+     "name": "Gazeta.uz",
+     "url": "https://www.gazeta.uz/en/2026/10/19/aksa--translation-2026-10-19-04-34-00/"
+    }
+   ],
+   "image": "3-news-121047.png",
+   "image_caption": "",
+   "photo": {
+    "file": "src-c02.webp",
+    "credit": "Gazeta.uz",
+    "url": "https://www.gazeta.uz/media/img/2026/10/ussfeossvd699ktTube17922372024773_208822_og.webp?r=1792392640",
+    "show": true
+   }
+  },
+  {
+   "headline": "O‘zbekiston Milliy investitsiya fondi mamlakatdagi ilk xalqaro IPO orqali qariyb 700 million dollar jalb qildi.",
+   "paragraphs": [
+    "Prezident Shavkat Mirziyoyev 19 oktyabr kuni Samarqandda Franklin Templeton prezidenti va bosh ijrochi direktori Jenni Jonsonni qabul qildi. Uchrashuvda O‘zbekiston Milliy investitsiya fondi aksiyalarining London va Toshkent birjalarida savdoga chiqarilishi mamlakat tarixidagi ilk xalqaro birlamchi ommaviy joylashtirish bo‘lgani ta’kidlandi. Joylashtirishda qariyb 700 million AQSh dollari jalb qilindi, aksiyalarga talab taklifdan to‘rt baravardan ko‘proq oshdi.",
+    "Uchrashuvda Fond portfelidagi kompaniyalarni transformatsiya qilishning keyingi bosqichi, yirik kompaniyalarning IPOga tayyorgarligi va kelgusi aksiya sotuvlarida aholi ishtirokini kengaytirish masalalari ko‘rib chiqildi. Franklin Templetonning Toshkent xalqaro moliya markazi faoliyatidagi ishtiroki ham muhokama qilindi."
+   ],
+   "category": "finans",
+   "candidate_ids": [
+    "c28"
+   ],
+   "sources": [
+    {
+     "name": "Daryo.uz",
+     "url": "https://daryo.uz/en/2026/10/20/uzbekistans-national-investment-fund-raises-nearly-700mn-through-first-international-ipo/"
+    }
+   ],
+   "photo": {
+    "file": "src-c28.webp",
+    "credit": "Daryo.uz",
+    "url": "https://gocdn.daryo.uz/large/2026/10/19/e154ad5ac40454eddcd9824c39835dd49c9917e98d79583923d139b61626baee.webp",
+    "show": true
+   }
+  },
+  {
+   "headline": "Yoqilg‘i-energetika sohasida Investorlar kengashi tuziladi.",
+   "paragraphs": [
+    "Prezident Shavkat Mirziyoyev 16 oktyabr kuni energetika sohasi investorlari bilan o‘tkazgan ochiq muloqotda yoqilg‘i-energetika sohasi uchun Investorlar kengashini tuzish to‘g‘risidagi qarorini e’lon qildi. Kengashga Prezident Administratsiyasi rahbari Saida Mirziyoyeva raislik qiladi.",
+    "Mirziyoyev energetika loyihalari katta kapital qo‘yilmalari va murakkab infratuzilmani talab qilishini, yer ajratish, tarmoqqa ulanish yoki texnik shartlarni berishdagi birgina kechikish ham butun loyihaga ta’sir qilishi mumkinligini ta’kidladi. ACWA, Vision Invest, DataVolt, Voltalia va EDF kompaniyalarining muammolarni davlat idoralari bilan doimiy muloqot orqali hal etish taklifi asosida tuzilgan kengash yer ajratishdan tortib obyektlarni ishga tushirishgacha bo‘lgan barcha bosqichlarda investorlar duch keladigan muammolarni tezkor hal etishga qaratilgan. Kengashning vakolatlari, tarkibi va ish tartibi hali e’lon qilinmagan."
+   ],
+   "category": "enerji",
+   "candidate_ids": [
+    "c34"
+   ],
+   "sources": [
+    {
+     "name": "Gazeta.uz",
+     "url": "https://www.gazeta.uz/en/2026/10/16/saida-mirziyoyeva/"
+    }
+   ],
+   "photo": {
+    "file": "src-c34.webp",
+    "credit": "Gazeta.uz",
+    "url": "https://www.gazeta.uz/media/img/2026/10/0ki7cri3n1s59FQcLxw17921493723229_208743_og.webp?r=1792154931",
+    "show": true
+   }
+  },
+  {
+   "headline": "AQSh O‘zbekistonga kichik modulli yadro reaktorlarini taklif qildi.",
+   "paragraphs": [
+    "AQSh Davlat kotibi Marko Rubio 19 oktyabr kuni Samarqandda bo‘lib o‘tgan Amerika-O‘zbekiston biznes va investitsiyalar kengashi yig‘ilishidagi nutqida ikki davlat hamkorlik yo‘nalishlari qatorida Amerika kichik modulli yadro reaktorlarini O‘zbekistonda joriy etish hamda mamlakatning elektr va gaz taqsimlash tarmoqlarini modernizatsiya qilishni sanab o‘tdi.",
+    "Rubio hamkorlik muhim minerallar, aviatsiya, kvant texnologiyalari, raqamli yechimlar va qishloq xo‘jaligi sohalarida ham rivojlanayotganini, Boeing va GE Aerospace samolyot dvigatellari va butlovchi qismlarini yetkazib berayotganini aytdi. Rubio, shuningdek, o‘zbekistonlik AKFA Group AQShning Kentukki shtatida ishlab chiqarish korxonasi qurish uchun 80 million AQSh dollari investitsiya kiritganini ma’lum qildi."
+   ],
+   "category": "enerji",
+   "candidate_ids": [
+    "c08"
+   ],
+   "sources": [
+    {
+     "name": "Spot.uz",
+     "url": "https://www.spot.uz/ru/2026/10/20/usa-rubio/"
+    }
+   ],
+   "photo": {
+    "file": "src-c08.webp",
+    "credit": "Spot.uz",
+    "url": "https://www.spot.uz/media/img/2026/10/f3fie15e8nap4n3tt0C17925091172547_l.webp",
+    "show": true
+   }
+  },
+  {
+   "headline": "Eksportchilar uchun valyuta tushumini qaytarmaganlik jarimalarini 50 foizga kamaytirishni nazarda tutuvchi qonun loyihasi Senatga yuborildi.",
+   "paragraphs": [
+    "Oliy Majlis Qonunchilik palatasi “Valyutani tartibga solish to‘g‘risida”gi Qonunga o‘zgartishlar kiritishni nazarda tutuvchi loyihani ikkinchi va uchinchi o‘qishda qabul qildi. Loyiha tashqi savdo operatsiyalari bo‘yicha aktivlarni repatriatsiya qilmaganlik uchun vijdonli tadbirkorlarga nisbatan qo‘llaniladigan sanksiyalarni yumshatishga qaratilgan.",
+    "Deputatlar ma’lumotiga ko‘ra, iqtisodiy sudlar 2024 yilda 3,5 ming tadbirkorga jami 752 milliard so‘m jarima solgan bo‘lsa, bir yildan so‘ng jarimalar soni 2,5 baravar oshib 9,1 mingga, umumiy summa esa to‘rt baravardan ko‘proq oshib 3,3 trillion so‘mga yetdi.",
+    "Loyiha kamida bitta yengillashtiruvchi holat mavjud bo‘lganda sudlarga jarimani 50 foizga kamaytirish huquqini beradi. Bunday holatlar qatoriga rezidentning sud yoki arbitrajga murojaat qilish kabi barcha choralarni ko‘rganligi, tushumning kamida 50 foizini qaytarganligi yoki repatriatsiya xalqaro sanksiyalar, to‘lov tizimlaridagi cheklovlar yoki valyuta operatsiyalari taqiqi sababli imkonsiz bo‘lganligi kiradi. Qonun kuchga kirishi uchun Senat ma’qullashi va Prezident imzosi talab etiladi. Avgust oyi oxirida imzolangan farmonga ko‘ra, kompaniyalar tashqi savdo debitorlik qarzlarini 1 yanvar 2027 yilga qadar o‘z mablag‘lari hisobidan jarimasiz to‘lashi mumkin."
+   ],
+   "category": "mevzuat",
+   "candidate_ids": [
+    "c25"
+   ],
+   "sources": [
+    {
+     "name": "Spot.uz",
+     "url": "https://www.spot.uz/ru/2026/10/20/repatriation-bill/"
+    }
+   ],
+   "photo": {
+    "file": "src-c25.jpg",
+    "credit": "Spot.uz",
+    "url": "https://www.spot.uz/media/img/2025/08/s1B6SZ17561125673545_b.jpg",
+    "show": true
+   }
+  },
+  {
+   "headline": "O‘zbekistonda muammoli kreditlar sakkiz oyda 33 foiz oshib, 1,99 milliard dollarga yetdi.",
+   "paragraphs": [
+    "Markaziy bank ma’lumotlariga ko‘ra, O‘zbekiston bank sektorida muammoli kreditlar 2026 yilning dastlabki sakkiz oyida 33 foiz oshib, 1 sentyabr holatiga 24,02 trillion so‘mga (1,99 milliard AQSh dollari) yetdi. Yil boshida bu ko‘rsatkich 18,06 trillion so‘m (1,50 milliard AQSh dollari) bo‘lgan.",
+    "Muammoli kreditlarning 16,54 trillion so‘mi (1,37 milliard AQSh dollari), ya’ni 69 foizi davlat banklariga to‘g‘ri keladi. Davlat banklari orasida eng katta hajm taxminan 3,2 trillion so‘mdan Agrobank va O‘zbekiston Milliy bankida qayd etilgan, Mikrokreditbank esa 2,14 trillion so‘mdan ortiq ko‘rsatkich bilan keyingi o‘rinda. Xususiy banklardagi muammoli kreditlar yil boshidagi 5,2 trillion so‘mdan 7,5 trillion so‘mga oshdi; xususiy banklar orasida eng katta hajm 1,15 trillion so‘m bilan Kapitalbankda qayd etildi."
+   ],
+   "category": "finans",
+   "candidate_ids": [
+    "c31"
+   ],
+   "sources": [
+    {
+     "name": "Daryo.uz",
+     "url": "https://daryo.uz/en/2026/10/19/uzbekistans-non-performing-loans-rise-33-to-1-99bn-in-8m26/"
+    }
+   ],
+   "photo": {
+    "file": "src-c31.webp",
+    "credit": "Daryo.uz",
+    "url": "https://gocdn.daryo.uz/large/2026/10/18/4a2cb427c3d19794a964f10bab81893746eb077d098796978cd6395277dd1559.webp",
+    "show": true
+   }
+  },
+  {
+   "headline": "“Xalq Sug‘urta” sug‘urta kompaniyasi xususiylashtirish uchun Davlat aktivlarini boshqarish agentligiga topshirildi.",
+   "paragraphs": [
+    "O‘zbekiston Xalq bankining 100 foizli sho‘ba korxonasi bo‘lgan “Xalq Sug‘urta” sug‘urta kompaniyasidagi davlat ulushi keyinchalik xususiylashtirish uchun Davlat aktivlarini boshqarish agentligiga topshirildi. Agentlikka har birining nominal qiymati 1.000 so‘m bo‘lgan 80 million dona aksiya topshirildi; paketning umumiy nominal qiymati 80 milliard so‘mni tashkil etadi.",
+    "Kompaniya 28 avgustdagi Prezident farmoni bilan xususiylashtiriladigan aktivlar ro‘yxatiga kiritilgan edi. Farmonga ko‘ra, 2026-2027 yillarda 62 ta korxonadagi davlat aksiyalari ochiq savdoga chiqarilishi rejalashtirilgan. Bankers.uz ma’lumotiga ko‘ra, 1 iyul holatiga kompaniya aktivlari 278,54 milliard so‘mni tashkil etgan, yanvar-iyun oylarida esa kompaniya 15,42 milliard so‘m sof foyda olgan."
+   ],
+   "category": "yatırım",
+   "candidate_ids": [
+    "c07"
+   ],
+   "sources": [
+    {
+     "name": "Spot.uz",
+     "url": "https://www.spot.uz/ru/2026/10/20/xalq-sugurta/"
+    }
+   ],
+   "photo": {
+    "file": "src-c07.webp",
+    "credit": "Spot.uz",
+    "url": "https://www.spot.uz/media/img/2026/10/0lv99bol8k7tcdT3tMf17925112224743_l.webp",
+    "show": true
+   }
+  },
+  {
+   "headline": "Rossiyaga ishlash uchun ketayotgan O‘zbekiston fuqarolari soni 13,2 foizga kamaydi, Turkiyadagi O‘zbekiston fuqarolari soni 70 mingga yetdi.",
+   "paragraphs": [
+    "O‘zbekiston Markaziy bankining Mehnat bozori sharhiga ko‘ra, 2026 yilning yanvar-iyun oylarida Rossiyaga ishlash uchun ketgan O‘zbekiston fuqarolari soni o‘tgan yilning shu davriga nisbatan 13,2 foizga kamayib, 1,179 millionni tashkil etdi (2025 yilning birinchi yarmida 1,358 million).",
+    "Sharhda tashqi mehnat migratsiyasi boshqa yo‘nalishlarga kengayib borayotgani qayd etilib, 2025 yilda Yevropa Ittifoqidagi o‘zbekistonlik mehnat muhojirlari soni 13,2 foizga, Turkiyadagilari esa 10,7 foizga oshgani aytilgan. 2026 yil 1 iyul holatiga Turkiyadagi O‘zbekiston fuqarolari soni bir yil avvalgiga nisbatan 9,3 foizga oshib, 70 mingga yetdi; Janubiy Koreyada bu ko‘rsatkich 102,2 mingni tashkil etdi.",
+    "Rossiyadan pul o‘tkazmalari 2026 yilning birinchi yarmida yillik hisobda 8,8 foizga oshdi. Markaziy bank ayrim yo‘nalishlarga mehnat migratsiyasining qisqarishi kelgusida pul o‘tkazmalari tushumi, aholi daromadlari va iste’mol talabiga salbiy ta’sir ko‘rsatishi mumkinligi haqida ogohlantirdi."
+   ],
+   "category": "türkiye",
+   "candidate_ids": [
+    "c37"
+   ],
+   "sources": [
+    {
+     "name": "Daryo.uz",
+     "url": "https://daryo.uz/en/2026/10/20/number-of-uzbek-citizens-going-to-russia-for-work-falls-13-2/"
+    }
+   ],
+   "photo": {
+    "file": "src-c37.webp",
+    "credit": "Daryo.uz",
+    "url": "https://gocdn.daryo.uz/large/2026/10/19/d0eab6c5323c0689dcb586d38988976419f2ee58f237c9eb3d22e483c1c0d81b.webp",
+    "show": true
+   }
+  },
+  {
+   "headline": "O‘zbekiston 2030 yilgacha raqamli iqtisodiyotda 500 ming yangi ish o‘rni yaratishni maqsad qilgan.",
+   "paragraphs": [
+    "Prezident Shavkat Mirziyoyevga taqdim etilgan raqamli ta’lim ekotizimini rivojlantirish rejalariga ko‘ra, O‘zbekiston 2030 yilgacha raqamli iqtisodiyotda qo‘shimcha 500 ming ish o‘rni yaratishni maqsad qilgan. Avvalroq 2030 yil uchun belgilangan IT sohasida 300 ming ish o‘rni yaratish maqsadiga shu yil erishildi.",
+    "Reja doirasida yoshlarni o‘qitish, kasbiy malakani sertifikatlash va ishga joylashtirishni birlashtirgan yagona tizim yaratish hamda 2030 yilgacha 5,5 million yoshni an’anaviy va masofaviy shaklda o‘qitish ko‘zda tutilgan. Mirziyoyev har yili 1 million yoshni robototexnika, kompyuter o‘yinlari ishlab chiqish va startap yaratish kabi yo‘nalishlarda o‘qitish vazifasini qo‘ydi. Universitet o‘quv dasturlarida sun’iy intellekt, mikrochip loyihalash va uchuvchisiz texnologiyalar bo‘yicha ta’limni kengaytirish ham rejalashtirilgan."
+   ],
+   "category": "diğer",
+   "candidate_ids": [
+    "c16"
+   ],
+   "sources": [
+    {
+     "name": "UzDaily.uz",
+     "url": "https://www.uzdaily.uz/en/uzbekistan-targets-500000-more-it-jobs-by-2030/"
+    }
+   ],
+   "photo": {
+    "file": "src-c16.webp",
+    "credit": "UzDaily.uz",
+    "url": "https://www.uzdaily.uz/media/filer_public/0b/37/0b37f549-4ee2-4858-af6d-1cade4e74ee7/prezidentdigitalsystem2010_20261020154929.webp",
+    "show": true
+   }
+  }
+ ]
+}

@@ -9,7 +9,7 @@ Canlı (claude.ai) sürüm: https://claude.ai/artifact/GtLkbez1knUF3tiW76iQba
 | Klasör | Ne işe yarar |
 |---|---|
 | kök (`bot/`, `static/`, `templates/`, `Dockerfile`) | **Tam sunucu sürümü** (Python). Giriş ekranı, Editör/Yönetici rolleri, saatlik haber taraması + Claude çevirisi, günlük rapor taraması, PDF ve seslendirmeli video. |
-| `web/` | **Tarayıcı sürümü** (12.11.2026, v28): otomatik bülten, haber okuma penceresi, Kaynaklar sayfası, 12 rapor türü. Sunucu gerektirmez; veriler o tarayıcıda saklanır. |
+| `web/` | **Vercel sürümü** (13.11.2026): claude.ai panelinin bugünkü hali, verileriyle (bülten listesi, 255 haber, 45 kaynak, raporlar, PDF'ler). Haber toplama `web/api/topla.js`. Kayıtlar tarayıcıda saklanır. |
 | `config/` | Hazır ayarlar: haber kaynakları, birimler, rapor türleri. Gizli anahtar yok. |
 | `deploy/` | Kendi sunucusu için kurulum betiği, Caddy (otomatik HTTPS), günlük yedek. |
 | `KURULUM.md` | Ayrıntılı kurulum ve kullanım (Türkçe). |
@@ -33,8 +33,8 @@ sh deploy/sunucu-kur.sh             # sonunda İLK KURULUM KODU yazar
 ```
 Alan adının DNS A kaydı sunucu IP'sini göstermelidir. Ayrıntı: `KURULUM.md`.
 
-**Vercel (yalnızca tarayıcı sürümü)**
-Vercel → Add New → Project → bu depo. `vercel.json` `web/` klasörünü yayınlar.
+**Vercel (web/ sürümü)**
+Vercel → Add New → Project → bu depoyu Import → **Root Directory: `web`**, Framework: Other → Deploy. Ayrıntı: `web/BENIOKU.md`.
 
 ## Maliyet
 Haber çevirisi Claude Haiku, bülten Claude Sonnet ile yapılır; panelde aylık 5 $ tavan var (`AI_MONTHLY_LIMIT_USD`), tahmini kullanım ~3 $/ay. Masraf yalnızca girilen Claude anahtarına yansır.
